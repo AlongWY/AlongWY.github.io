@@ -1,7 +1,6 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2><a href="https://alongwy.top/blog/">冯某人的博客</a></h2>
   </div>
 </template>
 
