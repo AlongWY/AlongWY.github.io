@@ -18,6 +18,7 @@ script:
 
 after_script:
   - cd ./dist
+  - echo alongwy.top > CNAME
   - git init
   - git config --global user.name "Along"
   - git config --global user.email "15939423778@163.com"
