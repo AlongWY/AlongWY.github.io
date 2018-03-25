@@ -1,30 +1,9 @@
-# blogindex
+# 啸雨听风
 
-> A Vue.js project
+[![Build Status](https://travis-ci.org/AlongWY/AlongWY.github.io.svg?branch=index)](https://travis-ci.org/AlongWY/AlongWY.github.io)
 
-## Build Setup
+[我的博客](http://alongwy.top)
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+* `master`分支下是`index`生成的主页
+* `index`分支下是`vue.js`生成主页的源文件
+* `hexo`分支下是`hexo`生成网页的源文件
