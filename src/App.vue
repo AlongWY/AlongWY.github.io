@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <a href="https://alongwy.top/blog"><img src="./assets/logo.png"></a>
     <router-view/>
   </div>
 </template>
