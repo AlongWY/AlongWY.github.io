@@ -1,0 +1,48 @@
+# 头像
+avatar:
+  url: /images/avatar.gif
+
+
+# 菜单
+menu:
+  home: / || home
+  #about: /about/ || user
+  tags: /tags/ || tags
+  categories: /categories/ || th
+  archives: /archives/ || archive
+
+
+# 主题配置
+scheme: Mist
+
+# 社交
+social:
+  GitHub: https://github.com/alongwy || github
+  E-Mail: mailto:alongwyforever@gmail.com || envelope
+  
+# 尾端赞助
+reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！
+wechatpay: /images/wechatpay.png
+alipay: /images/alipay.jpg
+
+# SEO
+baidu_analytics: cc17a4634467e27b31f43eaf763dbadc
+google_site_verification: fpdtSzHznXH7GVhkEBkuAnO0Wo-mi0pDgZDkfeQ9SIM
+google_analytics: UA-104748547-1
+tencent_analytics: 63419879
+
+# 评论系统
+valine:
+  enable: true
+  appid: 4PDkVJ1jjTHjS3mgxUcLJl2v-gzGzoHsz # your leancloud application appid
+  appkey: ON9zU5d6U6ct2ee7DuwOnFmi # your leancloud application appkey
+  
+# 访问量统计
+leancloud_visitors:
+  enable: true
+  app_id: 4PDkVJ1jjTHjS3mgxUcLJl2v-gzGzoHsz #<app_id>
+  app_key: ON9zU5d6U6ct2ee7DuwOnFmi # <app_key>
+  
+# 搜索
+local_search:
+  enable: true
