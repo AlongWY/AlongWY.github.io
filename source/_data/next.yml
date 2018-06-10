@@ -2,7 +2,6 @@
 avatar:
   url: /images/avatar.gif
 
-
 # 菜单
 menu:
   home: / || home
@@ -10,6 +9,11 @@ menu:
   tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || archive
+  
+# MathJax
+math:
+  enable: true
+  engine: mathjax
 
 
 # 主题配置
