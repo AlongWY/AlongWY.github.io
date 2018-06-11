@@ -75,4 +75,4 @@ grub-mkconfig -o /boot/grub/grub.cfg
 使用用Manjaro的安装盘，再次进入安装初始界面，选择倒数第二个选项，大概是EFI什么的，选中里面的grubx64.efi，进入grub2引导界面，选择Manjaro即可进入系统。
 
 ## Manjaro
-如果你和我做了同样的选择，安装的是Manjaro的话，安装后配置可以参照我的另一篇博客:[安装Linux/Manjaro](http://alongwy.top/2017/08/20/install-Manjaro/#more)
+如果你和我做了同样的选择，安装的是Manjaro的话，安装后配置可以参照我的另一篇博客:{% post_link install-Manjaro %}
