@@ -3,7 +3,7 @@ title: 软件构造基础
 tags:
   -Software Construction
 date: 2018-06-10    20:40:44
-categories:学习
+categories: 学习
 ---
 
 # 软件构造基础
