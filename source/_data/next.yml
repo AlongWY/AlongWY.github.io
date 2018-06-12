@@ -44,9 +44,11 @@ valine:
   
 # 访问量统计
 leancloud_visitors:
-  enable: true
+  enable: false
   app_id: 4PDkVJ1jjTHjS3mgxUcLJl2v-gzGzoHsz #<app_id>
   app_key: ON9zU5d6U6ct2ee7DuwOnFmi # <app_key>
+  security: true
+  betterPerformance: false
   
 # 搜索
 local_search:
