@@ -2,6 +2,7 @@
 title: 算法记号
 tags:
   - Algorithms
+mathjax: true
 date: 2018-06-11 22:30:16
 categories: 算法
 ---

@@ -14,6 +14,7 @@ menu:
 math:
   enable: true
   engine: mathjax
+#  per_page: false
 
 
 # 主题配置
