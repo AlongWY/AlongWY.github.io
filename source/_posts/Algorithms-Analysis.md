@@ -132,7 +132,7 @@ $$ T(n) = \Theta(n \log n)$$
 
 1. 若$f(n) = O(n^{\log_b a-\epsilon})$，$\epsilon > 0$是常数，则$T(n) = \theta(n^{\log_b a})$
 2. 若$f(n) = O(n^{\log_b a})$，则$T(n) = \theta(n^{\log_b a}\lg n)$
-3. 若$f(n) = \Omega(n^{\log_b a + \epsilon})$，$\epsilon > 0$是常数，且对于所有充分大的$n$有$af(\frac{n}{b}) \le cf(n)$,$c > 1$是常数，则$T(n) = \theta(f(n))$
+3. 若$f(n) = \Omega(n^{\log_b a + \epsilon})$，$\epsilon > 0$是常数，且对于所有充分大的$n$有$af(\frac{n}{b}) \le cf(n)$,$c < 1$是常数，则$T(n) = \theta(f(n))$
 
 换言之，我们比较$f(n)$和$n^{\log_b a}$：
 
