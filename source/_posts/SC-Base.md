@@ -149,3 +149,59 @@ Comparing：**比较**两个不同的版本。
 Pushing：**推送**版本历史到另一个位置。
 Pulling：从别的位置**拉取**版本历史。
 Mergeing：**合并**早期版本的衍生版本。
+
+#### git指令问题
+
+有三个开发者参与一个项目，A负责开发初始代码，B负责修复bug和优化代码，C负责测试并报告bug。项目的Git服务器为S，三人的本地Git仓库已经配置好远程服务器（名字均为origin）。项目的Git版本状态如图所示，三人的本地Git仓库的状态也是如此，其中包含主分支master，当前工作分支是master。
+
+![Git Graph](pics/SC-Base-git.JPG)
+
+此时他们三人开展了以下工作：
+
+1. A开发了某项新功能，他创建了分支b1并在该分支上提交新代码，推送至服务器S；
+2. C获取了A的提交，并在其上开辟了新分支b2，在b2上撰写测试程序并提交和推送至服务器S；
+3. C在执行测试程序过程中发现了A的代码存在问题，C将bug信息报告给B；
+4. B获取了C推送的包含测试程序的版本，在其基础上开辟了一个新分支b3用于bug修复，当B确认修改后的代码可通过所有测试用例之后，向Git做了一次提交，将b3合并到b2上并推送至服务器S
+5. C获取B的修复代码并重新执行其中包含的测试程序，确认bug已被修复，故将其合并到主分支master上，推送至服务器S，对外发布。
+
+题目：
+
+1. 在图上补全上述活动结束后服务器S上的版本状态图（需注明各分支的名字与位置）；
+2. 写出B为完成步骤d所需的全部Git指令，指令需包含完整的参数。
+
+```mermaid
+gitGraph:
+options
+{
+  "nodeSpacing": 100,
+  "nodeRadius": 10
+}
+end
+commit
+commit
+branch b1
+checkout b1
+commit
+branch b2
+checkout b2
+commit
+branch b3
+checkout b3
+commit
+checkout b2
+merge b3
+checkout master
+merge b2
+```
+
+```bash
+git pull
+git checkout b2
+git checkout -b b3
+# fix bugs
+git add ./
+git commit -m "fix bugs"
+git checkout b2
+git merge b3
+git push
+```
