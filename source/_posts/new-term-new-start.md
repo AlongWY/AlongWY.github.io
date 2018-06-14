@@ -3,7 +3,7 @@ title: 新学期，新起点
 tags:
   - null
 date: 2017-09-03 21:56:38
-categories: 学习
+categories: 随笔
 ---
 
 久违了，工大！

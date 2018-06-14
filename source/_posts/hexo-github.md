@@ -4,7 +4,7 @@ date: 2017-08-17 7:30:00
 tags: 
     - Hexo
     - Travis CI
-categories: 学习
+categories: 教程
 ---
 
 # Hexo 介绍

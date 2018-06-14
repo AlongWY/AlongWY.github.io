@@ -4,7 +4,7 @@ tags:
   - Boost
   - Python
 date: 2017-12-14 21:33:13
-categories: 学习
+categories: 教程
 ---
 # 简介
 Boost.Python 是 Boost 中的一个组件，使用它能够大大简化用 C++ 与 Python 交互的步骤，提高开发效率。

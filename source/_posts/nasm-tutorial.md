@@ -4,7 +4,7 @@ tags:
   - Asm
   - Nasm
 date: 2017-09-04 20:00:01
-categories: 学习
+categories: 教程
 ---
 
 # 题外话

@@ -3,7 +3,7 @@ title: Spring Boot起步
 tags:
   - Spring Boot
 date: 2017-09-22 08:25:42
-categories: 学习
+categories: 教程
 ---
 # Spring Boot简介
 [Spring Boot](https://projects.spring.io/spring-boot/L)是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。通过这种方式，Boot致力于在蓬勃发展的快速应用开发领域（rapid application development）成为领导者。

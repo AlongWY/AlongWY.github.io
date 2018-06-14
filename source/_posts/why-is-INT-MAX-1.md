@@ -4,7 +4,7 @@ tags:
   - c/c++
   - asm
 date: 2017-09-14 08:03:22
-categories: 学习
+categories: 研习
 ---
 # 序
 C语言中的INT_MIN的定义与我们的直觉是不同的，在Linux中的 `limits.h` 头文件中有如下定义：

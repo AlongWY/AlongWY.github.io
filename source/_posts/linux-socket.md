@@ -4,7 +4,7 @@ tags:
   - Linux
   - Socket
 date: 2017-09-10 10:42:44
-categories: 学习
+categories: 教程
 ---
 
 # 序

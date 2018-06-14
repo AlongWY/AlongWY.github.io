@@ -4,7 +4,7 @@ tags:
   - Windows
   - Linux
 date: 2017-09-06 10:06:59
-categories: 学习
+categories: 教程
 ---
 
 # 简介

@@ -3,7 +3,7 @@ title: Latex-Circuitikz绘制电路图
 tags:
   - Latex
 date: 2017-10-13 18:18:03
-categories: 学习
+categories: 教程
 ---
 # Latex 和 Circuitikz 简介
 Circuitikz 是Latex的一个宏包,可以非常方便的绘制电路图， Circuitikz 基于 Tikz 宏包，为我们提供了更多的电学图形，供我们插入到图形中去。

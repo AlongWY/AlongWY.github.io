@@ -3,7 +3,7 @@ title: 编译安装不限流量的Lantern
 tags:
   - lantern
 date: 2017-09-16 20:29:59
-categories: 学习
+categories: 教程
 ---
 
 # Lantern简介

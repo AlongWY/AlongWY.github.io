@@ -1,10 +1,10 @@
 ---
-title: 安装Linux/Manjaro
+title: 配置安装Linux/Manjaro
 date: 2017-08-20 22:28:19
 tags: 
     - Linux 
     - Manjaro
-categories: 学习
+categories: 教程
 ---
 
 # Manjaro介绍
