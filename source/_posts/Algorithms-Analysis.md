@@ -13,9 +13,9 @@ categories: 算法
 
 <!-- more -->
 
-## 算法时间复杂度记号
+# 算法时间复杂度记号
 
-### $\Theta$ 渐进紧确界
+## $\Theta$ 渐进紧确界
 
 >定义一：设$f(n)$和$g(n)$是定义域为自然数集合的函数。如果$\lim_{n \rightarrow \infty}\frac{f(n)}{g(n)}$存在，并且等于某个常数$c(c>0)$，那么$f(n)=\Theta(g(n))$。通俗理解为$f(n)$和$g(n)$同阶，$\Theta$用来表示算法的精确阶。
 
@@ -25,7 +25,7 @@ $$\Theta(g(n)) = \{ f(n):\lim_{n \rightarrow \infty}\frac{f(n)}{g(n)} = c | c>0 
 
 $$\Theta(g(n)) = \{ f(n):\exists c_1,c_2,n_0,\forall n \ge n_0,0 \le c_1g(n) \le f(n) \le c_2g(n) \}$$
 
-### $O$ 渐进上界
+## $O$ 渐进上界
 
 >定义：设$f(n)$和$g(n)$是定义域为自然数集$N$上的函数。若存在正数$c$和$n_0$，使得对一切$n \ge n_0$都有$0 \le f(n) \le cg(n)$成立，则称$f(n)$的渐进的上界是$g(n)$，记作$f(n)=O(g(n))$。通俗的说n满足一定条件范围内，函数$f(n)$的阶不高于函数$g(n)$。
 
@@ -35,11 +35,11 @@ $$ O(g(n)) = \{ f(n):\exists c,n_0,\forall n \ge n_0,0 \le f(n) \le cg(n) \} $$
   $f(n)=O(n^2)$，取$c=2$,$n_0=1$即可
   $f(n)=O(n^3)$，取$c=1$,$n_0=2$即可。显然，O(n^2)作为上界更为精确。
 
-### $o$ 非渐进紧确上界
+## $o$ 非渐进紧确上界
 
->定义1：设$f(n)$和$g(n)$是定义域为自然数集N上的函数。若对于任意正数$c$，都存在$n_0$，使得对一切$n≥n_0$都有$0 \ge f(n)<cg(n)$成立，则称$f(n)$的渐进的非紧确上界是$g(n)$，记作$f(n)=o(g(n))$。通俗的说$n$满足一定条件范围内，函数$f(n)$的阶低于函数$g(n)$。
+>定义1：设$f(n)$和$g(n)$是定义域为自然数集N上的函数。若对于任意正数$c$，都存在$n_0$，使得对一切$n≥n_0$都有$0 \le f(n)<cg(n)$成立，则称$f(n)$的渐进的非紧确上界是$g(n)$，记作$f(n)=o(g(n))$。通俗的说$n$满足一定条件范围内，函数$f(n)$的阶低于函数$g(n)$。
 
-$$ o(g(n)) = \{f(n):\forall c,\exists n_0,\forall n \ge n_0,0 \ge f(n) < cg(n) \} $$
+$$ o(g(n)) = \{f(n):\forall c,\exists n_0,\forall n \ge n_0,0 \le f(n) < cg(n) \} $$
 
 >定义2：设$f(n)$和$g(n)$是定义域为自然数集合的函数。如果$lim_{n\rightarrow \infty}\frac{f(n)}{g(n)}=0$，那么$f(n)=o(g(n))$。通俗理解为$f(n)$低于$g(n)$的阶。
 
@@ -50,13 +50,13 @@ $$\Theta(g(n)) = \{ f(n):\lim_{n \rightarrow \infty}\frac{f(n)}{g(n)} = 0 \}$$
 
   例子：$f(n)=n^2+n$，则$f(n)=o(n^3)$
 
-### $\Omega$ 渐进下界
+## $\Omega$ 渐进下界
 
 >定义：设$f(n)$和$g(n)$是定义域为自然数集$N$上的函数。若存在正数$c$和$n_0$，使得对一切$n≥n_0$都有$0≤cg(n)≤f(n)$成立，则称$f(n)$的渐进的下界是$g(n)$，记作$f(n)=\Omega(g(n))$。通俗的说n满足一定条件范围内，函数$f(n)$的阶不低于函数$g(n)$。
 
 $$\Omega(g(n)) = \{ f(n):\exists c,n_0,\forall n \ge n_0,0 \le cg(n) \le f(n) \}$$
 
-### $\omega$ 非渐进紧确下界
+## $\omega$ 非渐进紧确下界
 
 >定义1：设$f(n)$和$g(n)$是定义域为自然数集N上的函数。若对于任意正数$c$，都存在$n_0$，使得对一切$n \ge n_0$都有$0 \le cg(n) < f(n)$成立，则称$f(n)$的渐进的非紧确下界是$g(n)$，记作$f(n)= \omega (g(n))$。通俗的说$n$满足一定条件范围内，函数$f(n)$的阶高于函数$g(n)$。
 
@@ -66,7 +66,7 @@ $$\Omega(g(n)) = \{ f(n):\forall c, \exists n_0,\forall n \ge n_0,0 \le cg(n) \l
 
 $$ \Omega(g(n)) = \{ f(n):\lim_{n \rightarrow \infty} \frac{f(n)}{g(n)} = \infty \} $$
 
-### 符号总结
+## 符号总结
 
 | 记号     | 含义           | 通俗理解 |
 | :------: | :------------: | :------: |
@@ -77,7 +77,7 @@ $$ \Omega(g(n)) = \{ f(n):\lim_{n \rightarrow \infty} \frac{f(n)}{g(n)} = \infty
 | $\omega$ | 非紧的渐进下界 | >        |
 
 + 传递性: 所有五个标记
-  + $f(n)= \Theta(g(n))$且$g(n)= \Theta(h(n))\rightarrow f(n)= \Theta(h(n)) $
+  + $f(n)= \Theta(g(n))$且$g(n)= \Theta(h(n))\rightarrow f(n)= \Theta(h(n))$
 + 自反性: O、$\Theta$、$\Omega$
   + $f(n)= \Theta(f(n))$
 + 对称性: $\Omega$
@@ -89,9 +89,9 @@ $$ \Omega(g(n)) = \{ f(n):\lim_{n \rightarrow \infty} \frac{f(n)}{g(n)} = \infty
 一些典型的增长阶：
 $$ O(1) < O(\lg n) < O(\sqrt n) < O(n) < O(n \lg n) < O(n^2) < O(n^3) < O(2^n) < O(n!)$$
 
-## 和式的估计与界限
+# 和式的估计与界限
 
-### 和式的估计
+## 和式的估计
 
 $$ \sum_{k=1}^n(ca_k+b_k) = c\sum_{k=1}^na_k+\sum_{k=1}^nb_k $$
 
@@ -103,7 +103,7 @@ $$ \sum_{k=0}^{\infty} x^k = \frac{1}{1-x} \qquad |x|<1$$
 
 $$ H_n = \sum_{k=1}^n\frac{1}{k} = \ln n+ O(1)$$
 
-### 递归方程
+## 递归方程
 
 >递归方程：递归方程是使用小的输入值来描述一个函数的方程或者不等是。
 
@@ -126,7 +126,7 @@ $$ T(n) = \Theta(n \log n)$$
 + Master定理
   + 求解型为$T(n)=aT(\frac{n}{b})+f(n)$的递归方程
 
-#### Master定理
+## Master定理
 
 >Master定理：设$a \ge 1$和$b>1$是常数，$f(n)$是一个函数，$T(n)$是定义在非负整数级上的函数$T(n)=aT(\frac{n}{b})+f(n)$，$T(n)$可以如下求解：
 
@@ -139,3 +139,61 @@ $$ T(n) = \Theta(n \log n)$$
 1. 则$n^{\log_b a}$大，$T(n) = \theta(n^{\log_b a})$
 2. 若$f(n)$大，则$T(n) = \theta(f(n))$
 3. 若$f(n)$与$n^{\log_b a}$同阶，$T(n) = \theta(n^{\log_b a}\lg n) = \theta(n^{\log_b a}\lg n)$
+
+# 习题
+
+>求解递归方程$T(n) = T(\frac{5n}{6} + n)$
+
+1. $a = 1$,$b = \frac{6}{5}$,$f(n) = n$
+2. $n^{\log_ba} = 1 < f(n)$
+3. $T(n) = \Theta(n)$
+
+>证明或否证明$f(n) + o(f(n)) = \theta(f(n))$
+
+$$
+\begin{array}{ll}
+\lim_{n \rightarrow \infty}\frac{\theta(f(n))}{f(n) + o(f(n))} &= \lim_{n \rightarrow \infty}\frac{1}{\frac{f(n)}{\theta(f(n))} + \frac{o(f(n))}{\theta(f(n))}} \\
+  &= \lim_{n \rightarrow \infty}\frac{1}{\frac{1}{c} + 0} \\
+  &= c
+\end{array}
+$$
+
+>证明：设k是任意常数正整数，则$\log^kn = o(n)$
+
+$$
+\begin{array}{ll}
+\lim_{n \rightarrow \infty}\frac{\log^kn}{n} &= \lim_{n \rightarrow \infty}\log^kn^{\frac{1}{n}} \\
+&= \lim_{n \rightarrow \infty}\log^k1 \\
+&= 0
+\end{array}
+$$
+
+>证明$O(f(x))+O(g(x))=O(max(f(x),g(x)))$
+
+解：
+
+>求解递归方程$T(n)=T([\frac{n}{2}]) + 1$
+
+解：
+
+>对于平面上的两个点$p_1=(x_1, y_1)$和$p_2=(x_2,y_2)$，如果$x_1 \le x_2$且$y_1 \le y_2$，则$p_2$支配$p_1$，给定平面上的$n$个点，请设计算法求其中没有被任何其他点支配的点。
+
+解：
+
+>如果一个数组$A[1…n]$中某个元素的数量超过其元素数量的一半，称其包含主元素，假设比较两个元素大小的时间不是常数但判定两个元素是否相等的时间是常数，要求对于给定数组$A$，设计算法判定其是否有主元素，如果有，找到该元素。
+>(1)设计时间复杂性为$O(n \log n)$的算法完成该任务。
+>(2)设计时间复杂性为$O(n)$的算法完成该任务。
+
+解：
+
+>证明：在有$n$个数的序列中找出最大的数至少需要$n-1$次比较
+
+解：
+
+>设计一个对7个元素进行排序的方法，保证其平均比较次数最少，要求证明这个结论
+
+解：
+
+>假设$a_1,a_2,\dots,a_n$是$\{1,2,\dots,n\}$的一个随机排列，等可能的为$n!$可能排列中的任意一种排列，当对列表$a_1,a_2,\dots,a_n$排序时，元素$a_i$从它当前位置到达排序位置必须一定$|a_i-i|$的距离，求元素必须移动的期望总距离$E\sum_{i=1}^n[|a_i-1|]$
+
+解：
