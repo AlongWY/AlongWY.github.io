@@ -13,8 +13,10 @@ menu:
 # MathJax
 math:
   enable: true
-  engine: mathjax
-#  per_page: false
+  engine: katex
+  katex:
+    # Use 0.10.0-beta as default, jsdelivr as default CDN, works everywhere even in China
+    cdn: //cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css
 
 
 # 主题配置
@@ -58,6 +60,6 @@ local_search:
 ## mermaid url https://github.com/knsv/mermaid
 mermaid:
   enable: true  # default true
-  version: "7.1.2" # default v7.1.2
+  version: "8.0.0-rc.8"
   options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
     #startOnload: true  // default true
