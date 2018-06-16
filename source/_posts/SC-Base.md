@@ -3,7 +3,7 @@ title: 软件构造基础
 tags:
   - Software Construction
 date: 2018-06-10    20:40:44
-categories: 学习软件构造
+categories: 软件构造
 ---
 
 # 软件构造基础
@@ -154,7 +154,7 @@ Mergeing：**合并**早期版本的衍生版本。
 
 有三个开发者参与一个项目，A负责开发初始代码，B负责修复bug和优化代码，C负责测试并报告bug。项目的Git服务器为S，三人的本地Git仓库已经配置好远程服务器（名字均为origin）。项目的Git版本状态如图所示，三人的本地Git仓库的状态也是如此，其中包含主分支master，当前工作分支是master。
 
-![Git Graph](/blog/pics/SC-Base-git.JPG)
+![Git Graph](/blog/pics/SC-Base-git.jpg)
 
 此时他们三人开展了以下工作：
 

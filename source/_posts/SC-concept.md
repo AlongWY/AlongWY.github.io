@@ -3,7 +3,7 @@ title: 软件构造-概念辨析
 tags:
   - Software Construction
 date: 2018-06-12 21:54:52
-categories: 学习软件构造
+categories: 软件构造
 ---
 
 # 概念辨析
