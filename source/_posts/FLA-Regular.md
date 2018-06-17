@@ -7,9 +7,11 @@ date: 2018-06-14 11:30:00
 categories: 形式语言与自动机
 ---
 
-# 确定的有穷自动机
+确定的有穷自动机
+=============
 
-## 形式定义
+形式定义
+--------
 
 确定型有穷自动机(Determinstic Finite Automaton,DFA)A的形式定义为五元组：
 $$A = (Q,\Sigma,\delta,q_0,F)$$
@@ -22,7 +24,8 @@ $$A = (Q,\Sigma,\delta,q_0,F)$$
 
 <!-- more -->
 
-## DFA的表示
+DFA的表示
+--------
 
 DFA有两种简化的表示方法，状态转移图(transition diagram)和状态转移表(transition table)
 
