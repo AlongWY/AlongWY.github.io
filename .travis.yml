@@ -1,3 +1,10 @@
+sudo: required
+dist: trusty
+addons:
+  apt:
+    packages:
+      - pandoc
+
 language: node_js
 node_js: stable
 

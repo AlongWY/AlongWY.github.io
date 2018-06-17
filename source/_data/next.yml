@@ -13,7 +13,11 @@ menu:
 # MathJax
 math:
   enable: true
-  engine: katex
+  engine: mathjax
+  #engine: katex
+  mathjax:
+  # Use 2.7.4 as default, jsdelivr as default CDN, works everywhere even in China
+    cdn: //cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML
   katex:
     # Use 0.10.0-beta as default, jsdelivr as default CDN, works everywhere even in China
     cdn: //cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css
@@ -64,14 +68,11 @@ mermaid:
   options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
     #startOnload: true  // default true
 
-# markdown-it-plus
-# more options here:https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus
-markdown_it_plus:
-  highlight: true
-  html: true
-  xhtmlOut: true
-  breaks: true
-  langPrefix:
-  linkify: true
-  typographer:
-  quotes: “”‘’
+# pandoc
+pandoc:
+  filters:
+  extra:
+  template:
+  meta:
+  #extra:
+  #- key: value
