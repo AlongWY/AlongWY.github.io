@@ -63,3 +63,15 @@ mermaid:
   version: "8.0.0-rc.8"
   options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
     #startOnload: true  // default true
+
+# markdown-it-plus
+# more options here:https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus
+markdown_it_plus:
+  highlight: true
+  html: true
+  xhtmlOut: true
+  breaks: true
+  langPrefix:
+  linkify: true
+  typographer:
+  quotes: “”‘’

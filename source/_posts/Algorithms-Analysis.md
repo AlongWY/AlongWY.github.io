@@ -162,38 +162,27 @@ $$
 
 $$
 \begin{array}{ll}
-\lim_{n \rightarrow \infty}\frac{\log^kn}{n} &= \lim_{n \rightarrow \infty}\log^kn^{\frac{1}{n}} \\
-&= \lim_{n \rightarrow \infty}\log^k1 \\
+\lim_{n \rightarrow \infty}\frac{\log^kn}{n} &= \lim_{n \rightarrow \infty}\frac{k\log^{k-1}n}{n} \\
+&= \lim_{n \rightarrow \infty}\frac{k(k-1)\log^{k-2}n}{n} \\
+&= \lim_{n \rightarrow \infty}\frac{k!}{n} \\
 &= 0
 \end{array}
 $$
 
 >证明$O(f(x))+O(g(x))=O(max(f(x),g(x)))$
 
-解：
+$$\begin{gathered}
+   f(x) \le \max(f(x),g(x)) \\
+   g(x) \le \max(f(x),g(x)) \\
+   f(x) + g(x) \le 2\max(f(x),g(x))
+\end{gathered}$$
 
->求解递归方程$T(n)=T([\frac{n}{2}]) + 1$
+满足定义，所以$O(f(x)+g(x)) = O(\max(f(x),g(x)))$得证。
 
-解：
+>求解递归方程$T(n)=T(\lceil \frac{n}{2} \rceil) + 1$,$\lceil x \rceil$用以表示不小于x的整数中最小的一个。
 
->对于平面上的两个点$p_1=(x_1, y_1)$和$p_2=(x_2,y_2)$，如果$x_1 \le x_2$且$y_1 \le y_2$，则$p_2$支配$p_1$，给定平面上的$n$个点，请设计算法求其中没有被任何其他点支配的点。
-
-解：
-
->如果一个数组$A[1…n]$中某个元素的数量超过其元素数量的一半，称其包含主元素，假设比较两个元素大小的时间不是常数但判定两个元素是否相等的时间是常数，要求对于给定数组$A$，设计算法判定其是否有主元素，如果有，找到该元素。
->(1)设计时间复杂性为$O(n \log n)$的算法完成该任务。
->(2)设计时间复杂性为$O(n)$的算法完成该任务。
-
-解：
-
->证明：在有$n$个数的序列中找出最大的数至少需要$n-1$次比较
-
-解：
-
->设计一个对7个元素进行排序的方法，保证其平均比较次数最少，要求证明这个结论
-
-解：
-
->假设$a_1,a_2,\dots,a_n$是$\{1,2,\dots,n\}$的一个随机排列，等可能的为$n!$可能排列中的任意一种排列，当对列表$a_1,a_2,\dots,a_n$排序时，元素$a_i$从它当前位置到达排序位置必须一定$|a_i-i|$的距离，求元素必须移动的期望总距离$E\sum_{i=1}^n[|a_i-1|]$
-
-解：
+$$\begin{aligned}
+T(n) & = T(\lceil \frac{n}{2} \rceil) + 1\\
+     & = T(\lceil \frac{\lceil \frac{n}{2} \rceil}{2} \rceil) + 2 \\
+     & = \lceil \log_2n \rceil = O(\log n)
+\end{aligned}$$
