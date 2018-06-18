@@ -5,7 +5,6 @@ db.json
 node_modules/
 public/
 .deploy*/
-tags
 package-lock.json
 yarn.lock
 .idea
