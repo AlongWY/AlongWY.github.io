@@ -236,7 +236,34 @@ std::vector<point> find_no_dominated(const std::vector<point> &points) {
 >(1)设计时间复杂性为$O(n \log n)$的算法完成该任务。
 >(2)设计时间复杂性为$O(n)$的算法完成该任务。
 
-(1) ~~快速排序，而后遍历，时间复杂度为$O(n \log n)$。(比较不是常数时间)~~
+(1) ~~快速排序，而后遍历，时间复杂度为$O(n \log n)$(比较不是常数时间)。~~参考@高靖龙的算法，把数组分成两个数组A,B,若A和B的主元素分别是a,b，那么主元素m必定是a或者b，然后使用遍历的方法就可以确定主元素是谁。
+
+```c
+int find_master(const int A[], int start, int end) {
+    if (start + 1 == end)
+        return start;
+
+    int middle = (start + end) / 2;
+    int a = find_master(A, start, middle);
+    int b = find_master(A, middle, end);
+
+    int middle_size = (end - start) / 2;
+
+    int count_a = 0;
+    int count_b = 0;
+    for (int i = start; i != end; ++i) {
+        count_a += A[i] == A[a];
+        count_b += A[i] == A[b];
+        if (count_a > middle_size) return a;
+        if (count_b > middle_size) return b;
+    }
+    return -1;
+}
+
+int find_master(const int A[], int size) {
+    return find_master_log_n(A, 0, size);
+}
+```
 
 (2) 若某个元素的个数超过总元素个数的一半，那么两两不同的元素抵消，那么最终剩下的元素一定是主元素。
 
@@ -253,9 +280,12 @@ int find_master(const int A[], int size) {
     count = 0;
     for (int i = 0; i != size; ++i)
         if (A[master] == A[i])count++;
-    return count > size ? master : -1;
+    return count > size / 2 ? master : -1;
 }
 ```
+
+----------------------------------------
+这里给出的都是数组的下标。
 
 >证明：在有$n$个数的序列中找出最大的数至少需要$n-1$次比较
 
