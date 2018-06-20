@@ -96,7 +96,7 @@ $\hat{\delta}$的含义可以理解为，从一个状态开始，读入某个串
 那么，如果$w = a_0a_1 \dots a_n$，那么$\hat{\delta}(q,w)=\delta(\delta(\dots \delta(\hat{\delta}(q,\epsilon),a_0)\dots,a_{n-1}),a_n)$
 
 DFA的语言
-========
+--------
 
 DFA $A = (Q,\Sigma,\delta,q_0,F)$接受的语言计为$\mathbf{L}(A)$，定义如下：
 
@@ -214,8 +214,50 @@ NFA扩展转移函数
 因为 $q_2$ 是接受状态, 所以 NFA 接受 00101.
 
 NFA的语言
-========
+--------
 
 NFA $A = (Q,\Sigma,\delta,q_0,F)$接受的语言计为$\mathbf{L}(A)$，定义如下：
 
 $$\mathbf{L}(A) = \{w|\delta(q_0,w) \cap F \not = \emptyset\}$$
+
+DFA与NFA的等价性
+--------------
+
+每个DFA都是一个NFA,显然,NFA接受的语言包含正则语言。下面的定理给出,NFA也仅接受正则语言。证明的关键表明DFA能够模拟NFA,即,对每个NFA,能够构造一个等价的DFA。使用一个DFA模拟一个NFA的方法是让DFA的状态对应于NFA的状态集合。
+
+> 定理 1. 如果语言*L*被某个*NFA*接受, 当且仅当L被某个*DFA*接受。
+
+证明：设 NFA$N =(Q_N,\Sigma,\delta_N,q_0,F_N)$接受L,那么构造 DFA$D=(Q_D,\Sigma,\delta_D,\{q_0\},F_D)$如下:
+
+1. $Q_D = 2^{Q_N}$ , 即 DFA 的状态是 NFA 的状态集;
+2. 开始状态 ${q_0}$;
+3. 终态 $F_D = \{S | S \subseteq Q_N,S \cap F_N \not = \emptyset \}$, 即包含 NFA 终态的状态集, 作为 DFA 的终态;
+4. 状态转移函数 $\delta_D$ , 对每个$S \subseteq Q_N$和每个输入字符:$$\delta_D(S,A) = \bigcup_{p \in S} \delta_N([,a]) $$即$\delta_D(S, a)$的计算, 就是在NFA中, 从S中每个状态p在输入a之后所能达到的全部状态的集合.
+
+下面用归纳法, 证明 $\mathbf{L}(D) = \mathbf{L}(N)$. 对w的长度进行归纳, 往证$$\hat{\delta}_D(\{q_0\},w)=\hat{\delta}_N(q_0,w)$$成立.
+
+[归纳基础] 当$|w| = 0$时, 即$w = \epsilon$时, 显然$\hat{\delta}_D(\{q_0\},\epsilon)=\hat{\delta}_N(q_0,\epsilon)=\{q_0\}$.
+
+[归纳假设] 假设$|w|=n(n \ge 0)$时, 上式成立;
+
+[归纳递推] 那么,当$|w|=n+1$时,将$w$拆分成$w=xa$的形式,$a$是$w$最后一个符号. 由$\hat{\delta}_N$的定义, 有$$\hat{\delta}_N(q_0,w)=\hat{\delta}_N(q_0,xa)=\bigcup_{p \in \hat{\delta}_N(q_0,x)}\delta_N(p,a)$$由$\hat{\delta}_D$的定义, 有$$\hat{\delta}_D(\{q_0\},w)=\hat{\delta}_D(\{q_0\},xa)=\delta_D(\hat{\delta}_D(\{q_0\},x),a)$$由上面的DFA$D$的构造, 有$$\delta_D(\hat{\delta}_D(\{q_0\},x),a)=\bigcup_{p \in \hat{\delta}_N(\{q_0\},x)}\delta_N(p.a)$$又因为, 由归纳假设$$\hat{\delta}_D(\{q_0\},x)=\hat{\delta}_N(q_0,x)$$因此$\hat{\delta}_D(\{q_0\},w)=\hat{\delta}_N(q_0,w)$成立。
+
+因此$\forall w \in \mathbf{L}(N)$, 有$\hat{\delta}_N(q_0,w) \cap F_N \not= \emptyset$, 那么$\hat{\delta}_D(\{q_0\}, w)\in F_D$, 所以$w \in \mathbf{L}(D)$, 即 $\mathbf{L}(N) \subseteq\mathbf{L}(D)$; 且$∀w \in \mathbf{L}(D)$, 有$\hat{\delta}_D(\{q_0\}, w) \in F_D$, 那么 $\hat{\delta}_N(q_0,w)\cap F_N \not= \emptyset$所以 $w \in \mathbf{L}(N)$, 即$\mathbf{L}(D)\subseteq \mathbf{L}(N)$;因此$\mathbf{L}(D)=\mathbf{L}(N)$。
+
+示例(子集构造法，构造与NFA等价的DFA):
+
+|                            | 0             | 1             |
+| -------------------------: | :-----------: | :-----------: |
+| $\rightarrow \{q_0\}$      | $\{q_0,q_1\}$ | $\{q_0\}$     |
+| $\cancel{\{q_1\}}$         | $\emptyset$   | $\{q_2\}$     |
+| $\cancel{*\{q_2\}}$        | $\emptyset$   | $\emptyset$   |
+| $\{q_0,q_1\}$              | $\{q_0,q_1\}$ | $\{q_0,q_2\}$ |
+| $*\{q_0,q_2\}$             | $\{q_0,q_1\}$ | $\{q_0\}$     |
+| $\cancel{\emptyset}$       | $\emptyset$   | $\emptyset$   |
+| $\cancel{*\{q_1,q_2\}}$    | $\emptyset$   | $\{q_2\}$     |
+| $\cancel{\{q_0,q_1,q_2\}}$ | $\{q_0,q_1\}$ | $\{q_0,q_2\}$ |
+
+带有空转移的有穷自动机
+==================
+
+为FA增加另一种扩展:在空串$(\epsilon)$发生状态转移.
