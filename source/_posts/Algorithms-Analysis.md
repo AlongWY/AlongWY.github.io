@@ -236,7 +236,7 @@ std::vector<point> find_no_dominated(const std::vector<point> &points) {
 >(1)设计时间复杂性为$O(n \log n)$的算法完成该任务。
 >(2)设计时间复杂性为$O(n)$的算法完成该任务。
 
-(1) ~~快速排序，而后遍历，时间复杂度为$O(n \log n)$(比较不是常数时间)。~~参考@高靖龙的算法，把数组分成两个数组A,B,若A和B的主元素分别是a,b，那么主元素m必定是a或者b，然后使用遍历的方法就可以确定主元素是谁。
+(1) ~~快速排序，而后遍历，时间复杂度为O(n*log*n)(比较不是常数时间)。~~参考@高靖龙的算法，把数组分成两个数组A,B,若A和B的主元素分别是a,b，那么主元素m必定是a或者b，然后使用遍历的方法就可以确定主元素是谁。
 
 ```c
 int find_master(const int A[], int start, int end) {

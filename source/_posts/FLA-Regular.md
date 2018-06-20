@@ -16,8 +16,8 @@ categories: 形式语言与自动机
 
 <!-- more -->
 
-形式定义
---------
+DFA形式定义
+----------
 
 确定型有穷自动机(Determinstic Finite Automaton,DFA)A的形式定义为五元组：
 $$A = (Q,\Sigma,\delta,q_0,F)$$
@@ -78,13 +78,13 @@ graph LR
 状态转移表实例：
 
 |                   | 0     | 1     |
-| ----------------: | ----- | ----- |
+| ----------------: | :---: | :---: |
 | $\rightarrow q_0$ | $q_1$ | $q_0$ |
 | $q_1$             | $q_1$ | $q_2$ |
 | $*q_2$            | $q_2$ | $q_2$ |
 
-扩展转移函数
-----------
+DFA扩展转移函数
+-------------
 
 转移函数$\delta$是$Q \times \Sigma$上的函数，所以只能处理$\Sigma$中的字符，为了使用方便，定义字符串上的转移函数$\hat{\delta}:Q \times \Sigma^* \mapsto Q$,如下：
 
@@ -159,3 +159,63 @@ graph LR
   q2 -- 0 --> q1
   q2 -- 1 --> q0
 ```
+
+NFA形式定义
+----------
+
+非确定型的有穷自动机(Nondeterminstic Finite Automaton,NFA)A的形式定义为五元组：
+$$A = (Q,\Sigma,\delta,q_0,F)$$
+
+1. $Q$:有穷状态集
+2. $\Sigma$:有穷输入符号集或者字母表
+3. $\delta$:$Q \times \Sigma \mapsto 2^Q$,状态转移函数
+4. $q_0$:初始状态，$q_0 \in Q$
+5. $F$:终结状态集或接受状态集，$F \subseteq Q$
+
+NFA 与 DFA 的区别是转移函数和接受方式: NFA 转移函数一般形式 $\delta(q, a) = \{p_1 , p_2, · · · , p_n \}$;当输入串全部读入时, NFA 所处的状态中, 只要包括 F 中的状态, 就称为接受该串.
+
+示例
+前面的例子中, NFA 的定义可以形式化的表述为$A = (\{q_0, q_1, q_2 \}, \{0, 1\}, \delta, q_0 , \{q_2 \})$
+
+其中转移函数$\delta$如下:
+$$
+\begin{array}
+\delta(q_0,0) = \{q_0,q_1\} & \delta(q_1,0) = \emptyset &\delta(q_2,0) = \emptyset \\
+\delta(q_0,1) = \{q_0\} & \delta(q_1,1) = \{q_2\} & \delta(q_2,1) = \emptyset
+\end{array}
+$$
+
+若表示为状态转移表:
+
+|                   | 0             | 1           |
+| ----------------: | :-----------: | :---------: |
+| $\rightarrow q_0$ | $\{q_0,q_1\}$ | $\{q_0\}$   |
+| $q_1$             | $\emptyset$   | $\{q_2\}$   |
+| $*q_2$            | $\emptyset$   | $\emptyset$ |
+
+NFA扩展转移函数
+-------------
+
+与 DFA 类似,将$\delta$扩展到输入串. 定义转移函数$Q \times \Sigma \mapsto 2^Q$的扩展为
+
+1. $\hat{\delta}(q, \epsilon) = {q}$;
+2. 若$w = xa$, 那么$\hat{\delta}(q, w) = \bigcup_{p \in \hat{\delta}(q,x)}\delta(p,a)$
+
+示例
+前面的例子中, 若输入是 00101, 每一步的状态转移分别是:
+
+1. $\hat{\delta}(q_0, \epsilon)=\{q_0 \}$
+2. $\hat{\delta}(q_0, 0) = \delta(q_0 , 0) = \{q_0 , q_1\}$
+3. $\hat{\delta}(q_0, 00) = \delta(q_0 , 0) \cup \delta(q_1, 0) = \{q_0 , q_1 \} \cup \emptyset = \{q_0 , q_1 \}$
+4. $\hat{\delta}(q_0, 001) = \delta(q_0 , 1) \cup \delta(q_1, 1) = \{q_0 \} \cup \{q_2\} = \{q_0 , q_2 \}$
+5. $\hat{\delta}(q_0, 0010) = \delta(q_0 , 0) \cup \delta(q_2, 0) = \{q_0 , q_1 \} \cup \emptyset = \{q_0 , q_1 \}$
+6. $\hat{\delta}(q_0, 00101) = \delta(q_0 , 1) \cup \delta(q_1, 1) = \{q_0 \} \cup \{q_2\} = \{q_0 , q_2 \}$
+
+因为 $q_2$ 是接受状态, 所以 NFA 接受 00101.
+
+NFA的语言
+========
+
+NFA $A = (Q,\Sigma,\delta,q_0,F)$接受的语言计为$\mathbf{L}(A)$，定义如下：
+
+$$\mathbf{L}(A) = \{w|\delta(q_0,w) \cap F \not = \emptyset\}$$
