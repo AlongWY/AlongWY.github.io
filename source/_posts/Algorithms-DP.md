@@ -262,6 +262,6 @@ $$\theta(S_1,S_2) = \begin{cases}
 
 $$\theta(c,m)=\begin{cases}
   0 & m = 0 \\
-  \min_{1\le k\le n}\theta(k,m-c_k) + 1 & m \ne 0
+  \min_{1\le k\le c}\theta(k,m-c_k) + 1 & m \ne 0
 \end{cases}
 $$
