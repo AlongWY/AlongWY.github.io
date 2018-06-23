@@ -6,13 +6,15 @@ date: 2018-06-12 21:54:52
 categories: 软件构造
 ---
 
-# 概念辨析
+概念辨析
+=======
 
 在课程的学习中，有一些概念难以理解，以下进行记录。
 
 <!-- more -->
 
-# 静态检查、动态检查、无检查
+静态检查、动态检查、无检查
+======================
 
 个人认为静态检查是**编译期的检查**、动态检查是**运行期所做的检查**、无检查是指虽然没有编译时或者运行时错误，但是有**语义错误**，也就是没有得到期望的结果。
 
@@ -33,7 +35,8 @@ categories: 软件构造
   }
 ```
 
-# 可变性(Mutability) VS 不可变性(Immutability)
+可变性(Mutability) VS 不可变性(Immutability)
+==========================================
 
 Note：Java是传值还是传引用？这个问题个人认为是传值，而不是传引用，但是很多时候，Java表现出了传引用的一些表现。比如说：
 
@@ -72,7 +75,8 @@ Note：Java是传值还是传引用？这个问题个人认为是传值，而不
 
 得出结论：Java中的**非原始类型**都是**指针**。
 
-## 变量的可变性
+变量的可变性
+----------
 
 一种是值可变，一种是引用可变。值的变化是指名字所引用的内存空间里面的数据发生改变，引用的变化则是指名字的内存指向发生了变化，从一个位置指向了另一个位置。
 
@@ -97,17 +101,20 @@ Note：Java是传值还是传引用？这个问题个人认为是传值，而不
   final StringBuilder s3 = s1; // 引用不可变，值可变
 ```
 
-## 类型的可变性
+类型的可变性
+==========
 
 可变类型：该类型的对象创建之后，仍然可以修改所创建的对象的值，如StringBuilder、List等。
 
 不可变类型：该类型的对象一旦创建，里面的值就不再变化，如String。
 
-# 不变量(Invariants)
+不变量(Invariants)
+=================
 
 不变量是一种属性,它在程序运行的时候总是一种状态,而不变性就是其中的一种:一旦一个不可变类型的对象被创建，它总是代表一个不变的值。当一个ADT能够确保它内部的不变量恒定不变(不受使用者/外部影响),我们就说这个ADT保护/保留自己的不变量。
 
-# 表示暴露(Representation Exposure)
+表示暴露(Representation Exposure)
+================================
 
 如果类外部的代码可以直接修改类内部存储的数据,那么我们就称之为表示暴露。避免标识暴露的几个方法：
 
@@ -115,7 +122,8 @@ Note：Java是传值还是传引用？这个问题个人认为是传值，而不
 2. 将变量声明为private的，这样就只给了外部有限的访问能力，单这里需要注意的是，对外暴露的是内部对象的引用还是拷贝，如果内部对象是可变的，那么仍然是隐患。
 3. 创建对象时的引用，如果创建对象的时候引用的是一个可变对象，那么外部对象的更改仍然对类有影响，可以考虑防御式复制或者使用不可变对象。
 
-# 表示不变量(Representation Invariants)和抽象函数(abstraction function)
+表示不变量(Representation Invariants)和抽象函数(abstraction function)
+==================================================================
 
 抽象域：类型设计时需要被支持的值，使用者所关心的抽象类型。
 
@@ -128,3 +136,43 @@ Note：Java是传值还是传引用？这个问题个人认为是传值，而不
 -----------------------
 
 比如大数的实现，对于使用者来说，抽象域集合就是所有可能的整数，而对于实现者来说，既可以用整数数组来表示也可以用字符串来进行表示，那么整数数组或者字符串就是表示域。
+
+例子
+===
+
+```java
+// Immutable type representing a tweet.
+// 不可变类型表示的tweet
+public class Tweet {
+  private final String author;
+  private final String text;
+  private final Date timestamp;
+
+  // Rep invariant:
+  // 所谓的表示不变量，其实就是内部的数据结构的组成部分都表示了tweet的什么部分
+  //    author is a Twitter username (a nonempty string of letters, digits, underscores)
+  //    text.length <= 140
+  // Abstraction function:
+  // 所谓的抽象函数，就是这个类型所表示的是个什么东西，当然，要给出类型的哪些东西表示的
+  //    AF(author, text, timestamp) = a tweet posted by author, with content text, at time timestamp
+  // Safety from rep exposure:
+  // 表示暴露安全，有这个的东西就是安全的，对象一旦产生，内部表示不会发生任何改变
+  //   下面需要对内部的所有表示进行说明，以证明确实是表示暴露安全的
+  //   All fields are private;
+  //   内部都是私有属性，那么引用的修改就不可能了
+  //   author and text are Strings, so are guaranteed immutable;
+  //   不可变类型，这说明外部不可能对他进行修改
+  //   timestamp is a mutable Date, so Tweet() constructor and getTimestamp()
+  //   可变类型需要做防御性的复制，避免外部变量引用内部变量，修改造成泄漏
+  //   make defensive copies to avoid sharing the rep's Date object with clients.
+
+  // Operations (specs and method bodies omitted to save space)
+  public Tweet(String author, String text, Date timestamp) { ...}
+
+  public String getAuthor() { ...}
+
+  public String getText() { ...}
+
+  public Date getTimestamp() { ...}
+}
+```

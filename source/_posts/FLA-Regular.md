@@ -261,3 +261,44 @@ DFA与NFA的等价性
 ==================
 
 为FA增加另一种扩展:在空串$(\epsilon)$发生状态转移.
+
+$\epsilon-NFA$形式定义
+---------------------
+
+确定型有穷自动机(Determinstic Finite Automaton,DFA)A的形式定义为五元组：
+$$A = (Q,\Sigma,\delta,q_0,F)$$
+
+1. $Q$:有穷状态集
+2. $\Sigma$:有穷输入符号集或者字母表
+3. $\delta$:$Q \times (\Sigma \cup \{\epsilon\}) \mapsto Q$,状态转移函数
+4. $q_0$:初始状态，$q_0 \in Q$
+5. $F$:终结状态集或接受状态集，$F \subseteq Q$
+
+与 DFA 相比,$\epsilon-NFA$的主要区别:
+
+1. 自动机处于某状态, 读入某个字符时, 可能有多余一个的转移;
+2. 自动机处于某状态, 读入某个字符时, 可能没有转移;
+3. 自动机处于某状态, 可能不读入字符, 就进行转移.
+
+$\epsilon$-闭包
+-------------
+
+状态q的$\epsilon$-闭包: 从状态 经过全部标记$\epsilon$的边所能到达的所有状态 (以及 q 自身) 的集合。$\epsilon$-闭包的递归定义:
+
+1. 状态$q \in ECLOSE(q)$;
+2. $\forall p \in ECLOSE(q)$, 若$r \in \delta(p, \epsilon)$, 则$r \in ECLOSE(q)$.
+
+如果S是状态集, 则定义:$$ECLOSE(S) =\bigcup_{q\in S}ECLOSE(q)$$
+
+$\epsilon-NFA$扩展转移函数
+------------------------
+
+(1) $\hat{\delta}(q, \epsilon) = ECLOSE(q)$
+(2) 如果$w = xa$, 则必然$a \not= \epsilon$, 因为$\epsilon \notin \Sigma$, 则$$\hat{\delta}(q,w)=ECLOSE(\bigcup_{p \in \hat{\delta}(q,x)}(p,a))$$
+
+$\epsilon-NFA$的语言
+-------------------
+
+$\epsilon-NFA$ $A = (Q,\Sigma,\delta,q_0,F)$接受的语言计为$\mathbf{L}(A)$，定义如下：
+
+$$\mathbf{L}(E) = \{w|\hat{\delta}(q_0,w) \cap F \not = \emptyset\}$$
