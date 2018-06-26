@@ -37,6 +37,8 @@ wechatpay: /images/wechatpay.png
 alipay: /images/alipay.jpg
 
 # SEO
+seo: true
+baidu_push: true
 baidu_analytics: cc17a4634467e27b31f43eaf763dbadc
 google_site_verification: fpdtSzHznXH7GVhkEBkuAnO0Wo-mi0pDgZDkfeQ9SIM
 google_analytics: UA-104748547-1
