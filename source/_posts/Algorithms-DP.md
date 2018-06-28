@@ -112,7 +112,7 @@ $$\theta(S_1,S_2) = \begin{cases}
   0                           & S_1=\emptyset\ or\ S_2=\emptyset \\
   \theta(S_1-v,S_2) + d       & S_1\not=\emptyset,S_2=\emptyset \\
   \theta(S_1,S_2-w) + i       & S_1=\emptyset,S_2\not=\emptyset \\
-  \max \begin{cases}
+  \min \begin{cases}
     \theta(S_1-v,S_2) + d \\
     \theta(S_1,S_2-w) + i \\
     \theta(S_1-v,S_2-w) + R(v,w) \\
@@ -238,7 +238,7 @@ $$
 
 $$\theta(i,j) = \begin{cases}
   0 & i=j \\
-  \max_{i\le k< j}(\theta(i,k)+\theta(k+1,j)) + \sum_{i\le k\le j}c_k & i \ne j
+  \min_{i\le k< j}(\theta(i,k)+\theta(k+1,j)) + \sum_{i\le k\le j}c_k & i \ne j
 \end{cases}
 $$
 
