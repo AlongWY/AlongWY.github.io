@@ -109,7 +109,7 @@ $$
 >考虑字符串变换操作，增加一个字符，删除一个字符以及修改一个字符，设增加字符操作的代价为i, 删除字符操作代价为d, 修改字符的代价为m，给定两个字符串S1和S2，设计一个动态规划算法，求得从S1变换到S2代价最小的变换序列，要求写出递推方程，程序伪代码并分析算法复杂性。
 
 $$\theta(S_1,S_2) = \begin{cases}
-  0                           & S_1=\emptyset\ or\ S_2=\emptyset \\
+  0                           & S_1=\emptyset\ and\ S_2=\emptyset \\
   \theta(S_1-v,S_2) + d       & S_1\not=\emptyset,S_2=\emptyset \\
   \theta(S_1,S_2-w) + i       & S_1=\emptyset,S_2\not=\emptyset \\
   \min \begin{cases}
@@ -245,7 +245,7 @@ $$
 >给定两个字符串$s_1, s_2$，其上的操作包括增加一个字符、删除一个字符、修改一个字符和交换两个相邻的字符，其中增加和删除一个字符和交换相邻字符的代价均为1,将字符a修改为字符b的代价记作C(a,b)，写出一个动态规划算法求出从$s_1$变化为$s_2$代价最小的变化序列，要求写出递推方程和伪代码并分析时间复杂性。
 
 $$\theta(S_1,S_2) = \begin{cases}
-  0                           & S_1=\emptyset\ or\ S_2=\emptyset \\
+  0                           & S_1=\emptyset\ and\ S_2=\emptyset \\
   \theta(S_1-v,S_2) + 1       & S_1\not=\emptyset,S_2=\emptyset \\
   \theta(S_1,S_2-w) + 1       & S_1=\emptyset,S_2\not=\emptyset \\
   \max \begin{cases}
