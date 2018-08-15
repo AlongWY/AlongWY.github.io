@@ -4,7 +4,7 @@ tags:
   - null
 mathjax: false
 date: 2018-08-15 21:02:56
-categories:
+categories: 学习
 ---
 
 drf_haystack
