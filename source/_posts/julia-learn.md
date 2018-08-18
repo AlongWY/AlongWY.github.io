@@ -769,7 +769,7 @@ code_native(circle_area, (Float64,))
     #       ret
 ```
 
-# julia 科学计算
+# Julia 科学计算
 
 ## 创建向量
 
@@ -882,6 +882,7 @@ cummin(A, k)
 # 一些推荐的库
 
 数据表格：
+
 + DataFrames.jl
 
 图表绘制：
@@ -903,5 +904,5 @@ cummin(A, k)
 
 数值微分：
 
-+ JuMP.jl       数学优化的建模语言
++ JuMP.jl
 + DifferentialEquations.jl
