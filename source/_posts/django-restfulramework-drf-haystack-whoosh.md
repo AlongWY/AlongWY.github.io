@@ -1,7 +1,9 @@
 ---
-title: django里使用全文搜索框架drf_haystack
+title: Django里使用全文搜索框架drf_haystack
 tags:
-  - null
+  - Web
+  - Django
+  - Drf_haystack
 mathjax: false
 date: 2018-08-15 21:02:56
 categories: 学习
@@ -10,7 +12,7 @@ categories: 学习
 drf_haystack
 ============
 
-Small library aiming to simplify using Haystack with Django REST Framework。
+一个便于快速在Django restframework中使用haystack的库。
 
 <!-- more -->
 
