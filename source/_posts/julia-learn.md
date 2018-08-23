@@ -879,6 +879,69 @@ cummax(A, k)
 cummin(A, k)
 ```
 
+# 线性规划
+
+```julia
+using JuMP
+using Mosek
+# using Plots
+# theme(:juno)
+
+#==
+max z = 72 * x1 + 64 * x2     (1)
+   s.t. x1 + x2 <= 50         (2)
+ 12 * x1 + 8 * x2 <= 480      (3)
+       3*x1 <= 100            (4)
+     x1 >= 0, x2 >= 0         (5)
+==#
+
+# 定义优化模型
+m = Model(solver = MosekSolver())
+
+# 定义变量
+@variable(m, x1 >= 0)       # (5)
+@variable(m, x2 >= 0)
+
+# 定义约束
+@constraint(m, milk ,x1 + x2 <= 50)             # (2)
+@constraint(m, time, 12 * x1 + 8 * x2 <= 480)   # (3)
+@constraint(m, cpct, 3 * x1 <= 100)             # (4)
+
+# 定义求解目标
+# 这里是最大化目标，使用Max，同理可使用Min
+@objective(m, Max, 72 * x1 + 64 * x2)           # (1)
+
+# 求解问题
+status = solve(m)           # Optimal 全局最优解
+
+print(m)
+#== 输出结果
+Max 72 x1 + 64 x2
+Subject to
+ x1 + x2 ≤ 50
+ 12 x1 + 8 x2 ≤ 480
+ 3 x1 ≤ 100
+ x1 ≥ 0
+ x2 ≥ 0
+==#
+
+# 目标优化后得到的最大值
+getobjectivevalue(m)  # 3360
+
+# 获取最优化时候的变量值
+getvalue(x1)          # 20
+getvalue(x2)          # 30
+
+# 获取对偶解，可以看作是优化过程中的效益
+getdual(milk)         # 48
+getdual(time)         # 2
+getdual(cpct)         # 0
+```
+
+# 微分方程
+
+TODO
+
 # 一些推荐的库
 
 数据表格：
