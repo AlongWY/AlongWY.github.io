@@ -953,12 +953,16 @@ docker pull juliacomputing/juliapro:lates
 ## 用法
 
 开启交互式命令行:     `docker run -it juliacomputing/juliapro:latest`
+
 开启Jupyter Notebook: `docker run -it -p 8888:8888 --entrypoint jupyter_notebook juliacomputing/juliapro:latest`
+
 使用企业版本:         `docker run -it --entrypoint julia juliacomputing/juliapro:latest -e "println(1+2)"`
+
 打开命令行:           `docker run -it --entrypoint bash juliacomputing/juliapro:latest`
 
 ## 容器信息
 JuliaPro 安装路径: /juliapro/bin
+
 账户: juliauser, 默认密码: juliauser
 
 # 一些推荐的库
