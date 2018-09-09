@@ -1188,3 +1188,36 @@ Pandoc 能够以数种形式自动产生引用与参考书目（使用 Andrea Ro
 
 [markdown]: http://daringfireball.net/projects/markdown/
 [reStructuredText]: http://docutils.sourceforge.net/docs/ref/rst/introduction.html
+
+
+Pandoc与中文
+============
+
+准备
+----
+
+1. 安装LaTeX发行版
+2. 使用 `fc-list :lang=zh` 发现合适的中文字体
+
+在Linux下生成PDF
+----------------
+
+1. 使用命令 `pandoc srs.md -o srs.pdf --latex-engine=xelatex -V mainfont='WenQuanYi Micro Hei Mono'`
+2. 添加Metadata，设置字体，使用如下命令 `pandoc --latex-engine=xelatex test.md -o test1.pdf`
+    ```markdown
+    ---
+    mainfont: WenQuanYi Micro Hei Mono
+    ---
+    ```
+3. 添加Metadata，设置模板类，命令同上
+    ```markdown
+    ---
+    documentclass:
+        - ctexart
+    ---
+    ```
+
+在Windows下生成PDF
+------------------
+
+方法同Linux，字体稍作修改 `CJKmainfont=KaiTi`。

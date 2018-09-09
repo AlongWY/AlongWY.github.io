@@ -98,6 +98,10 @@ neat_js:
   compress:
   exclude:
     - '*.min.js'
+    
+# pandoc
+pandoc:
+  mathEngine: katex
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
