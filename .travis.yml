@@ -1,6 +1,8 @@
 sudo: required
-dist: cosmic
+dist: trusty
 addons:
+  sources:
+    - sourceline: 'deb http://cz.archive.ubuntu.com/ubuntu cosmic main universe'
   apt:
     packages:
       - pandoc
