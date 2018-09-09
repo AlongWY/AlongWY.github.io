@@ -21,6 +21,7 @@ before_script:
   - npm install -g hexo-cli
 
 script:
+  - pandoc -v
   - hexo cl
   - hexo g
 
