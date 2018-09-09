@@ -1,11 +1,5 @@
 sudo: required
 dist: trusty
-addons:
-  apt:
-    sources:
-      - sourceline: 'deb http://cz.archive.ubuntu.com/ubuntu cosmic main universe'
-    packages:
-      - pandoc
 
 language: node_js
 node_js: stable
@@ -20,8 +14,8 @@ install:
   - npm install
 
 before_script:
-#  - wget https://github.com/jgm/pandoc/releases/download/2.2.3.2/pandoc-2.2.3.2-1-amd64.deb
-#  - sudo dpkg -i pandoc-2.2.3.2-1-amd64.deb
+  - wget https://github.com/jgm/pandoc/releases/download/2.2.3.2/pandoc-2.2.3.2-1-amd64.deb
+  - sudo dpkg -i pandoc-2.2.3.2-1-amd64.deb
   - npm install -g hexo-cli
 
 script:
