@@ -38,9 +38,21 @@ title: 简历
 * 主要负责软件的功能性开发和维护。
 * 语鼠软件的服务支持
 
+###### *July 2018 -  Present*
+### 哈工大智能技术与自然语言处理研究室 — 软件开发工程师
+* 开发WI输入法的英文输入(包括自动纠错，词语预测等功能)
+* 开发WI输入法的词库管理工具
+
 {{% /column %}}
 
 {{% column -span-cols-4 -p-left-3 %}}
+## 联系方式
++ [Blog](blog)
++ [GMail](mailto:AlongWYForever@gmail.com)
++ [Github](https://github.com/AlongWY)
+
+## 专业技能
+
 #### 熟练
   * C/C++
   * Java
