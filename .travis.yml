@@ -19,6 +19,9 @@ before_script:
 
 script:
   - hugo --theme=winning
+
+after_script:
+  - cd ..
   - cp themes/winning/exampleSite/generatepdf.js generatepdf.js
   - node generatepdf.js
 
