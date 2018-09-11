@@ -8,16 +8,24 @@ cache:
 
 # S: Build Lifecycle
 install:
-  - npm install
+  - uname -a
+  - npm i html-pdf -g
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.48/hugo_0.48_Linux-64bit.deb
+  - sudo dpkg -i hugo*.deb
+  - hugo version
 
 before_script:
-  - npm install -g vue-cli
+  - git clone --recursive https://github.com/cssandstuff/hugo-theme-winning.git themes/winning
 
 script:
-  - npm run build
+  - hugo --theme=winning
 
 after_script:
-  - cd ./dist
+  - cp themes/winning/exampleSite/generatepdf.js generatepdf.js
+  - node generatepdf.js
+
+after_success:
+  - cd ./public
   - echo alongwy.top > CNAME
   - git init
   - git config --global user.name "Along"
