@@ -55,3 +55,90 @@ categories:
 3. 如果还有子集不能够被正确的分类，那么就对这些子集选择新的最优特征，继续对其进行分割，构建相应的节点，如果递归进行，直至所有训练数据子集被基本正确的分类，或者没有合适的特征为止。
 4. 每个子集都被分到叶节点上，即都有了明确的类，这样就生成了一颗决策树。
 
+
+-------------------------------------------
+
+**没有代码的说教都是耍流氓！！！**
+
+下面给出具体实现(以信息增益作为划分标准)：
+
+```julia
+using DataFrames, CSV;
+
+function calcEnt(datasets)
+    num_samples = size(datasets,1)
+    label_counts = Dict()
+    for label in datasets[end]
+        if label in keys(label_counts)
+            label_counts[label] += 1
+        else
+            label_counts[label] = 1
+        end
+    end
+    # $ Ent(D) = - ∑_{p ∈ P} p log_2(p) $
+    return - sum([p * log2(p) for p in values(label_counts) ./ num_samples ])
+end
+
+function calcGain(datasets,class,ent = calcEnt(datasets))
+    num_samples = size(datasets,1)
+    groups = groupby(datasets, class)
+    entries = [(size(subsets,1),calcEnt(subsets)) for subsets in groups]
+    # $Gain(D,a) = Ent(D) - ∑_{v ∈ V} \frac{|D^v|}{|D|} Ent(D^v)$
+    return ent - sum([group_size / num_samples * grout_ent for (group_size,grout_ent) in entries])
+end
+
+function createTree(datasets,classes = names(datasets))
+    groups = groupby(datasets,classes[end])
+    if length(groups) == 1          # 取出分类标签（好瓜/坏瓜），如果只有一种，不需要继续分割
+        return groups[end][end][end]
+    end
+    if length(classes) == 1         # 没有别的类别可以用来分割，取概率最大的分类标签
+        max_group = groups[1]
+        for group in groups[2:end-1]
+            if length(group) > length(max_group)
+                max_group = group
+            end
+        end
+        return max_group[end][end]
+    end
+
+    best_class = classes[1]         # 取出最好的分类类别，即信息增益最大的类别
+    best_gain = calcGain(datasets,best_class)
+    for class in classes[1:end-1]
+        curr_gain = calcGain(datasets,class)
+        if curr_gain > best_gain
+            best_class = class
+            best_gain = curr_gain
+        end
+    end
+
+    new_classes = copy(classes)     # 递归调用，下一个分支需要用到的分类标签
+    filter!(x->x!=best_class, new_classes)   # 由于julia传引用，需要拷贝一份
+    best_class_label = Set(datasets[best_class])
+    tree = Dict(best_class => Dict())
+
+    # 遍历该类别标准下所有子分类，递归求解
+    for group in groupby(datasets,best_class)
+        tree[best_class][group[best_class][1]] = createTree(group,new_classes)
+    end
+
+    return tree
+end
+
+# 这里使用的是西瓜书 西瓜数据集2.0
+datasets = CSV.read("2.0.csv");
+tree = createTree(datasets)
+```
+
+[数据集奉上](2.0.csv)!
+
+Todo List:
+
+* 决策树的剪枝
+* 决策树可视化
+* 决策树的使用
+* 决策树的存储
+
+Change List:
+
+* 2018/9/13 : 补充了代码实现
