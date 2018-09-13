@@ -132,13 +132,27 @@ tree = createTree(datasets)
 
 [数据集奉上](2.0.csv)!
 
+# 决策树的存储
+
+```
+using Serialization;
+
+# 保存
+stream = open("Work/ML/tree.data","w")
+serialize(stream,tree)
+close(stream)
+
+# 读取
+stream = open("Work/ML/tree.data","r")
+read_tree = deserialize(stream)
+```
+
 Todo List:
 
 * 决策树的剪枝
-* 决策树可视化
 * 决策树的使用
-* 决策树的存储
 
 Change List:
 
-* 2018/9/13 : 补充了代码实现
+* 2018/9/12 : 补充了代码实现
+* 2018/9/13 : 添加了决策树的存储
