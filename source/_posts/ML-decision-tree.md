@@ -1,7 +1,7 @@
 ---
-title: 机器学习之决策树
+title: 机器学习-决策树
 tags:
-  - Mathine Learing
+  - Machine Learing
 mathjax: true
 date: 2018-09-11 22:30:42
 categories:

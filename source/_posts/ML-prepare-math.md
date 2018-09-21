@@ -2,7 +2,7 @@
 title: 机器学习数学预备知识
 tags:
   - Math
-  - Mathine Learing
+  - Machine Learing
 mathjax: true
 date: 2018-09-08 21:53:22
 categories:
@@ -187,7 +187,10 @@ $$H(p,q) = \sum -p(x)\log(q(x))$$
 
 因此，可以用交叉熵去衡量估计分布q与真实分布p的相似性，交叉熵越小那么越相似。
 
-$$H(p,q) = \sum -p(x) \log q(x) = -y\log(\hat{y})-(1-y)\log(1-\hat{y})$$
+$$\begin{array}{ll}
+H(p,q) &= \sum -p(x) \log q(x) \\ 
+       &= -y\log(\hat{y})-(1-y)\log(1-\hat{y})
+\end{array}$$
 
 因此，损失函数为，得到了和最大似然推导相同的结果：
 
@@ -314,10 +317,10 @@ $\frac{\partial \mathbf{Y}}{\partial \mathbf{X}} =
 \frac{\partial \mathbf{y_m}^T}{\partial \mathbf{x_1}} & \dots &\frac{\partial \mathbf{y_m}^T}{\partial \mathbf{x_q}} \\
 \end{bmatrix}$
 
-### 常用矩阵求导公式
+## 常用矩阵求导公式
 
 $$\frac{∂β^TX}{∂X} = β$$
-$$\frac{∂X^TX}{∂X} = X$$
+$$\frac{∂X^TX}{∂X} = 2X$$
 $$\frac{∂X^TAX}{∂X} = (A+A^T)X$$
 
 $$tr(a) = a$$
