@@ -6,18 +6,18 @@ pyplot()
 # range(0,2π,50)
 
 # 定义一些常量、工具函数（添加噪声、计算均方误差）
-MAX_ORDER = 9                       # 阶数
-MAX_DATA_NUM = 100                   #
-MAX_NOISE = 0.1                      #
-λ = 1                              # 正则项系数
-α = 1e-13                            # 学习率
-Momentum = 0.9                       # 动量，为了快速收敛
+MAX_ORDER = 9                         # 阶数
+MAX_DATA_NUM = 100                    #
+MAX_NOISE = 0.1                       #
+λ = 1                                 # 正则项系数
+α = 0.05                              # 学习率
+Momentum = 0.9                        # 动量，为了快速收敛
 MAX_ITER = 10000                      # 最大迭代次数
 BATCH_SIZE = 25                       # 批次
 rng = MersenneTwister(1234);
 noise(x) = x + MAX_NOISE * randn(rng,Float64,size(x))
 
-f(x) = sin(x)
+f(x) = sin(2π * x)
 
 # 损失函数 无正则/有正则
 E(y_real,y_predict) = 0.5 * (sum([Δy^2 for Δy in y_predict .- y_real])) / length(y_real)
@@ -25,7 +25,7 @@ E_l(y_real,y_predict,W_hat) = 0.5 * ((sum([Δy^2 for Δy in y_predict .- y_real]
 
 # 用于绘图
 function W_Plot(X,Y,W)
-    x_Plot = 0:0.1:2π
+    x_Plot = 0:0.01:1
     X_Plot = reshape([xd^i for i in MAX_ORDER:-1:0 for xd in x_Plot],length(x_Plot),MAX_ORDER+1)
     Y_Plot = X_Plot * W
 
@@ -35,7 +35,7 @@ function W_Plot(X,Y,W)
 end
 
 # 生成标签数据
-x_r = range(0,stop=2π,length=MAX_DATA_NUM)
+x_r = range(0,stop=1,length=MAX_DATA_NUM)
 X_r = reshape([xd^i for i in MAX_ORDER:-1:0 for xd in x_r],length(x_r),MAX_ORDER+1)
 Y_r = noise(f.(x_r))        # y_real
 
@@ -72,9 +72,9 @@ plot([x[1] for x in λs],[y[2] for y in λs])
 
 # 梯度下降 无正则项
 # W = W - α\frac{∂E_{W}}{∂W}
-W_hat = 0.5ones(MAX_ORDER+1)
+W_hat = ones(MAX_ORDER+1)
 v = zeros(MAX_ORDER+1)
-α = 1e-13
+α = 0.05
 
 for i = 1:MAX_ITER
     global W_hat,v
@@ -89,7 +89,6 @@ E(Y_r,X_r * W_hat)
 # 梯度下降 有正则项
 W_hat = ones(MAX_ORDER+1)
 v = zeros(MAX_ORDER+1)
-α = 1e-13
 
 for i = 1:MAX_ITER
     global W_hat,v
@@ -105,7 +104,6 @@ E(Y_r,X_r * W_hat)
 # W = W - α\frac{∂E_{W}}{∂W}
 W_hat = zeros(MAX_ORDER+1)
 v = zeros(MAX_ORDER+1)
-α = 1e-15
 
 for i = 1:MAX_ITER
     global W_hat,v
@@ -121,7 +119,6 @@ E(Y_r,X_r * W_hat)
 # 随机梯度下降 有正则项
 W_hat = zeros(MAX_ORDER+1)
 v = zeros(MAX_ORDER+1)
-α = 1e-15
 
 for i = 1:MAX_ITER
     global W_hat,v
@@ -142,7 +139,6 @@ E(Y_r,X_r * W_hat)
 A = X_r' * X_r
 b = X_r' * Y_r
 W_hat = zeros(MAX_ORDER+1)
-W_hat = (X_r' * X_r)^-1 * X_r' * Y_r
 
 rk = b - A * W_hat
 pk = rk
@@ -153,12 +149,13 @@ while true
     W_hat = W_hat + αk * pk
     rk2 = rk -  αk * A * pk
 
-    loss = sum([x^2 for x in rk2])
-    if loss < 0.3
-        print(rk2)
+    loss = E(Y_r,X_r * W_hat)
+    rk_l2 = sum([x^2 for x in rk2])
+    if loss < 0.01
+        println("Loss:$(loss) Rk:$(rk_l2)")
         break
     else
-        println("Loss:$(E(Y_r,X_r * W_hat)) Rk:$(loss)")
+        println("Loss:$(loss) Rk:$(rk_l2)")
     end
 
     Βk = rk2' * rk2 /  (rk' * rk)
