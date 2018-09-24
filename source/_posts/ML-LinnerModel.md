@@ -150,10 +150,6 @@ $$\omega_{i+1}\leftarrow  \omega_{i} - \alpha \frac{\partial E}{\partial \omega_
 
 上面这个公式基本思想就是减小不重要的参数对最后结果的影响，网络中有用的权重则不会收到Weight decay影响。
 
-$$ \omega_{i+1}\leftarrow  \omega_{i} - \alpha \frac{\partial E}{\partial \omega_{i}} - \alpha \lambda ||\omega _{i}||^2 $$
-
-上面这个式子就是我们之前提到的正则项，它控制了模型的复杂度不要太高。
-
 ## 退火(leanrning Rate Decay)
 
 在极值点附近，求解会由于学习率过大，导致解在极值点两侧摇摆，收敛速度变慢，很自然的想法是在极值点附近自动降低学习率。
