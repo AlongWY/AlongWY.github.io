@@ -46,16 +46,15 @@ $$f(x) = w^Tx + b$$
 
 ## 符号表
 
-| 符号                        | 释义           | 注释        |
-| :-------------------------: | -------------- | ----------- |
-| $X = x^{1},x^{2},…,x^{m}$   | 样本集         |             |
-| $x^i = x_1^i,x_2^i,…,x_n^i$ | 样本属性集     | 通常会包含b |
-| $Y = y^{1},y^{2},…,y^{m}$   | 标签集         |             |
-| $W = w^{1},w^{2},…,w^{n}$   | 依赖关系描述集 |             |
+| 符号                        | 释义           | 注释         |
+| :-------------------------: | -------------- | ------------ |
+| $X = x^{1},x^{2},…,x^{m}$   | 样本集         |              |
+| $x^i = x_1^i,x_2^i,…,x_n^i$ | 样本属性集     | 通常会包含b  |
+| $Y = y^{1},y^{2},…,y^{m}$   | 标签集         |              |
+| $W = w^{1},w^{2},…,w^{n}$   | 依赖关系描述集 |              |
 | $α$                         | 学习率         |
 | $β$                         | 动量系数       |
-| $λ$                         | 正则项系数     |
-| $η$                         | 权值衰减系数   |
+| $λ$                         | 正则项系数     | 权值衰减系数 |
 | $δ$                         | 学习率衰减系数 |
 
 # 线性回归
@@ -74,7 +73,7 @@ $$\arg \min_W \sum^m_{i=1}(y^i - x^i\hat{w})^2$$
 
 $$D = {(x^1,y^1),(x^2,y^2),…,(x^m,y^m)}$$
 
-那么我们就可以设置误差函数$E_{\hat{W}}$，来描述我们的预测值与实际值的偏差情况，则有：
+那么我们就可以设置误差函数$E_{\hat{W}}$(这里使用的是均方误差)，来描述我们的预测值与实际值的偏差情况，则有：
 $$E_{\hat{W}} = \frac{1}{length(X)} ∑(y - x \hat{w})^2$$
 
 把他们换成矩阵的形式：
@@ -99,7 +98,7 @@ $$E_{\hat{W}} = \frac{1}{length(X)} (Y - X \hat{W})^T(Y - X \hat{W})$$
 
 我们的目标是找到一个合适的$W$使得误差函数值最小，那么我们用误差函数对$W$求导：
 
-$$\frac{∂E_{\hat{W}}}{∂\hat{W}} = \frac{1}{length(X)} 2X^T(X\hat{W} - Y)$$
+$$\frac{∂E_{\hat{W}}}{∂\hat{W}} = \frac{2}{length(X)} X^T(X\hat{W} - Y)$$
 
 既然是要求最小值，那么我们令导数为零，则有：
 
@@ -111,14 +110,15 @@ $$\frac{∂E_{\hat{W}}}{∂\hat{W}} = 0 → \hat{W} = (X^TX)^{-1}X^TY$$
 
 那么我们希望可以限制模型的复杂度，当然，首先我们需要知道什么量和模型的复杂度相关，在实验过程中，我们会发现$W$的值越大，模型越复杂，那么我们就可以对此加以限制，使得$W$不能取这么大的值，于是我们就有：
 
-$$E_{\hat{W}} = \frac{1}{length(X)} ((1-λ)∑(y - x \hat{w})^2 + λ∑\hat{w}^2)$$
+$$E_{\hat{W}} = \frac{1}{length(X)} (∑(y - x \hat{w})^2 + λ∑\hat{w}^2)$$
 
 其中λ为正则项在进行拟合过程中占得比重，类似的，我们可以得到：
 
-$$E_{\hat{W}} = \frac{1}{length(X)} ((1-λ)(Y - X \hat{W})^T(Y - X \hat{W}) + λ\hat{W}^T\hat{W})$$
-$$\frac{∂E_{\hat{W}}}{∂\hat{W}} = \frac{1}{length(X)} (2(1-λ)X^T(X\hat{W} - Y) + 2λ\hat{W})$$
+$$E_{\hat{W}} = \frac{1}{length(X)} ((Y - X \hat{W})^T(Y - X \hat{W}) + λ\hat{W}^T\hat{W})$$
 
-$$\frac{∂E_{\hat{W}}}{∂\hat{W}} = 0 → \hat{W} = ((1-λ)X^TX + λ)^{-1}X^TY$$
+$$\frac{∂E_{\hat{W}}}{∂\hat{W}} = \frac{2}{length(X)} (X^T(X\hat{W} - Y) + λ\hat{W})$$
+
+$$\frac{∂E_{\hat{W}}}{∂\hat{W}} = 0 → \hat{W} = (X^TX + λI)^{-1}X^TY$$
 
 # 梯度下降
 ## 梯度下降
@@ -142,11 +142,17 @@ $$\hat{W} = \hat{W} + V$$
 
 ## 权值衰减(Weight Decay)
 
-在实际应用中，为了避免网络的过拟合，必须对价值函数（Cost function）加入一些正则项，在SGD中加入$\alpha \eta \omega _{i}$ 这一正则项对这个Cost function进行规范化：
+在实际应用中，为了避免网络的过拟合，必须对价值函数（Cost function）加入一些正则项，在SGD中加入$\alpha \lambda \omega _{i}$ 这一正则项对这个Cost function进行规范化：
 
-$$\omega_{i+1}\leftarrow  \omega_{i} - \alpha \frac{\partial E}{\partial \omega_{i}} - \alpha \eta \omega _{i}$$ 
+权值衰减的使用既不是为了提高收敛精确度也不是为了提高收敛速度，其最终目的是防止过拟合。在损失函数中，weight decay是放在正则项（regularization）前面的一个系数，正则项一般指示模型的复杂度，所以weight decay的作用是调节模型复杂度对损失函数的影响，若weight decay很大，则复杂的模型损失函数的值也就大。
+
+$$\omega_{i+1}\leftarrow  \omega_{i} - \alpha \frac{\partial E}{\partial \omega_{i}} - \alpha \lambda \omega _{i}$$ 
 
 上面这个公式基本思想就是减小不重要的参数对最后结果的影响，网络中有用的权重则不会收到Weight decay影响。
+
+$$ \omega_{i+1}\leftarrow  \omega_{i} - \alpha \frac{\partial E}{\partial \omega_{i}} - \alpha \lambda ||\omega _{i}||^2 $$
+
+上面这个式子就是我们之前提到的正则项，它控制了模型的复杂度不要太高。
 
 ## 退火(leanrning Rate Decay)
 
@@ -171,4 +177,4 @@ $$lr_i = lr_{start} * \frac{1}{1 + δ * i}$$
 Change list:
 
 - 2018/9/23 增补了一些线性模型的定义并丰富了推导过程。
-- 2018/9/24 重新修订符号表并重写优化方案
+- 2018/9/24 重新修订符号表并重写优化方案，修补了一些不够严谨的地方
