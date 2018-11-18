@@ -20,7 +20,7 @@ categories: 形式语言与自动机
 上下文无关文法 (也称文法, Context-Free Grammar, CFG) G 是一个四元组 $G = (V, T, P, S)$, 其中:
 
 1. $V$: 变元(*Variable*)的有穷集，变元也称为*非终结符*或语法*范畴*
-2. $T$: 终结符(*Terminal*)的有穷集，用来构成语言的串，这里$V\cap T = \emptyset$
+2. $T$: 终结符(*Terminal*)的有穷集，用来构成语言的串，这里$V\cap T = \empty$
 3. $P$: 产生式(*Production*)的有穷集，表示语言的递归定义，其中每个产生式都包括3部分：
     a. 一个变元，称为产生式的头(head)或左部，是产生式中被定义的部分
     b. 一个产生式符号$\rightarrow$
