@@ -20,7 +20,9 @@ DFA形式定义
 ----------
 
 确定型有穷自动机(Determinstic Finite Automaton,DFA)A的形式定义为五元组：
-$$A = (Q,\Sigma,\delta,q_0,F)$$
+$$
+A = (Q,\Sigma,\delta,q_0,F)
+$$
 
 1. $Q$:有穷状态集
 2. $\Sigma$:有穷输入符号集或者字母表
@@ -100,7 +102,9 @@ DFA的语言
 
 DFA $A = (Q,\Sigma,\delta,q_0,F)$接受的语言计为$\mathbf{L}(A)$，定义如下：
 
-$$\mathbf{L}(A) = \{w|\delta(q_0,w) \in F\}$$
+$$
+\mathbf{L}(A) = \{w|\delta(q_0,w) \in F\}
+$$
 
 如果一个语言是某个DFA $A$的语言，即$L = \mathbf{L}(A)$，则称$L$是正则语言。
 
@@ -164,7 +168,9 @@ NFA形式定义
 ----------
 
 非确定型的有穷自动机(Nondeterminstic Finite Automaton,NFA)A的形式定义为五元组：
-$$A = (Q,\Sigma,\delta,q_0,F)$$
+$$
+A = (Q,\Sigma,\delta,q_0,F)
+$$
 
 1. $Q$:有穷状态集
 2. $\Sigma$:有穷输入符号集或者字母表
@@ -218,7 +224,9 @@ NFA的语言
 
 NFA $A = (Q,\Sigma,\delta,q_0,F)$接受的语言计为$\mathbf{L}(A)$，定义如下：
 
-$$\mathbf{L}(A) = \{w|\delta(q_0,w) \cap F \not = \emptyset\}$$
+$$
+\mathbf{L}(A) = \{w|\delta(q_0,w) \cap F \not = \emptyset\}
+$$
 
 DFA与NFA的等价性
 --------------
@@ -266,7 +274,9 @@ $\epsilon-NFA$形式定义
 ---------------------
 
 确定型有穷自动机(Determinstic Finite Automaton,DFA)A的形式定义为五元组：
-$$A = (Q,\Sigma,\delta,q_0,F)$$
+$$
+A = (Q,\Sigma,\delta,q_0,F)
+$$
 
 1. $Q$:有穷状态集
 2. $\Sigma$:有穷输入符号集或者字母表
@@ -301,7 +311,9 @@ $\epsilon-NFA$的语言
 
 $\epsilon-NFA$ $A = (Q,\Sigma,\delta,q_0,F)$接受的语言计为$\mathbf{L}(A)$，定义如下：
 
-$$\mathbf{L}(E) = \{w|\hat{\delta}(q_0,w) \cap F \not = \emptyset\}$$
+$$
+\mathbf{L}(E) = \{w|\hat{\delta}(q_0,w) \cap F \not = \emptyset\}
+$$
 
 消除空转移
 ---------

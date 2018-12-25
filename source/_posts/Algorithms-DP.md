@@ -58,13 +58,15 @@ categories: 算法
 形式化的描述就是前i个物体的放入剩余容量为j的背包里面的最大价值，而我们所要面对的问题就是，第i个物体是否需要放入到背包中，那么我们就可以定义函数V(i,j)就是前i个物体的放入剩余容量为j的背包里面的最大价值。而我们当前求解的问题就是V(n,C)。
 
 那么问题就可以化为如下递归方程：
-$$V(i,j)=\left\{
+$$
+V(i,j)=\left\{
   \begin{array}{lllr}
   0                                 & j   =   1 & if \quad 0 \le j < w_1   & (1) \\
   v_n                               & j   =   1 & if \quad j \ge w_1       & (2) \\
   V(i-1,j)                          & j \not= 1 & if \quad 0 \le j \le v_i & (3) \\
   \max\{V(i-1,j),V(i-1,j-w_i)+v_i\} & j \not= 1 & if \quad j \ge w_i       & (4)
-  \end{array} \right.$$
+  \end{array} \right.
+$$
 
 (1)、(2)是递归基础，(3)、(4)则是递归调用，我们从前往后放物体，后面的这个物体是否放进去依赖于前面物体的价值和背包容量。
 
@@ -117,20 +119,24 @@ $$\theta(S_1,S_2) = \begin{cases}
     \theta(S_1,S_2-w) + i \\
     \theta(S_1-v,S_2-w) + R(v,w) \\
   \end{cases}                 & S_1\not=\emptyset,S_2\not=\emptyset
-\end{cases}$$
+\end{cases}
+$$
 
 其中：
-$$R(v,w) =\begin{cases}
+$$
+R(v,w) =\begin{cases}
 0  &   v  =  w \\
 r  &   v\not=w
-\end{cases}$$
+\end{cases}
+$$
 
 >将一根木棒折成若干份，每折一次的代价是当前这段木棒的长度, 总代价是折这根木棒直到满足要求所需要的所有操作的代价。例如，将一根长度为10的木棒折成四段，长度分别为2, 2, 3, 3，如果先折成长度为2和8的两段，再将长度为8的折成长度为2和6的两段，最后将长度为6的折成长度为3的两段，这些操作的代价是10+8+6=24；如果先折成长度为4和6的两段，在分别将长度为4的折成长度为2的两段、长度为6的折成长度为3的两段，则这些操作的代价是10+4+6=20，比上一种方案更好一些。  
 >该问题的输入是木棒的长度L和一些整数$c_1,\dots,c_n$, 要求将木棒折成长度为$c_1,\dots,c_n$的n段且操作代价最小，请设计动态规划算法解决该问题。
 
 设$\theta(i,j)$为将$c_i+c_{i+1}+\dots+c_j$长的木棒分开成$c_i,c_{i+1},\dots,c_j$长的小木棒所用的代价。
 
-$$\theta(i,j)=\begin{cases}
+$$
+\theta(i,j)=\begin{cases}
   0 & i=j \\
   \min_{i \le k < j}\{\theta(i,k)+\theta(k+1,j)\} + \sum_{i \le k \le j}c_k
 \end{cases}
@@ -215,7 +221,8 @@ def msb(array: list) -> int:
 
 可以把这个问题看作是一个背包问题，设$\theta(i,j)$表示$I_1,\dots,I_i$放入$[-\infty,j]$区间內所获得的最大价值
 
-$$\theta(i,j) = \begin{cases}
+$$
+\theta(i,j) = \begin{cases}
   0 & j < b_i \\
   \max \begin{cases}
     \theta(i-1,j) \\
@@ -230,13 +237,15 @@ $$
 与矩阵链乘类似。
 设石子的个数分别为$c_1,c_2,\dots,c_n$。同前面的某道题，sum可以用前缀和优化。
 
-$$\theta(i,j) = \begin{cases}
+$$
+\theta(i,j) = \begin{cases}
   0 & i=j \\
   \min_{i\le k< j}(\theta(i,k)+\theta(k+1,j)) + \sum_{i\le k\le j}c_k & i \ne j
 \end{cases}
 $$
 
-$$\theta(i,j) = \begin{cases}
+$$
+\theta(i,j) = \begin{cases}
   0 & i=j \\
   \min_{i\le k< j}(\theta(i,k)+\theta(k+1,j)) + \sum_{i\le k\le j}c_k & i \ne j
 \end{cases}
@@ -244,7 +253,8 @@ $$
 
 >给定两个字符串$s_1, s_2$，其上的操作包括增加一个字符、删除一个字符、修改一个字符和交换两个相邻的字符，其中增加和删除一个字符和交换相邻字符的代价均为1,将字符a修改为字符b的代价记作C(a,b)，写出一个动态规划算法求出从$s_1$变化为$s_2$代价最小的变化序列，要求写出递推方程和伪代码并分析时间复杂性。
 
-$$\theta(S_1,S_2) = \begin{cases}
+$$
+\theta(S_1,S_2) = \begin{cases}
   0                           & S_1=\emptyset\ and\ S_2=\emptyset \\
   \theta(S_1-v,S_2) + 1       & S_1\not=\emptyset,S_2=\emptyset \\
   \theta(S_1,S_2-w) + 1       & S_1=\emptyset,S_2\not=\emptyset \\
@@ -254,13 +264,15 @@ $$\theta(S_1,S_2) = \begin{cases}
     \theta(S_1-v_1v_2+v_2v_1,S_2) + 1 \\
     \theta(S_1-v,S_2-w) + C(v,w) \\
   \end{cases}                 & S_1\not=\emptyset,S_2\not=\emptyset
-\end{cases}$$
+\end{cases}
+$$
 
 >设有n种不同面值的硬币，面值分别为$c_1, c_2, \dots, c_n$分钱, 求用最少个数硬币来找K分钱的策略。要求写出递归方程、伪代码并分析时间和空间复杂度。
 
 可以类比背包问题，设$\theta(c,m)$为使用前c种面值的钱币找m分钱。
 
-$$\theta(c,m)=\begin{cases}
+$$
+\theta(c,m)=\begin{cases}
   0 & m = 0 \\
   \min_{1\le k\le c}\theta(k,m-c_k) + 1 & m \ne 0
 \end{cases}

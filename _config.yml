@@ -100,8 +100,8 @@ neat_js:
     - '*.min.js'
     
 # pandoc
-pandoc:
-  mathEngine: katex
+# pandoc:
+#   mathEngine: mathjax
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

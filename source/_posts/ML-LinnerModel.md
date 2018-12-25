@@ -18,11 +18,15 @@ categories:
 
 给定由d个属性描述的示例，即：
 
-$$f(x)=w_1x_1 + w_2x_2 + \dots + w_nx_n + b$$
+$$
+f(x)=w_1x_1 + w_2x_2 + \dots + w_nx_n + b
+$$
 
 一般用向量形式写成：
 
-$$f(x) = w^Tx + b$$
+$$
+f(x) = w^Tx + b
+$$
 
 其中$x_i$是样本的第i个属性的属性值，$w_i$是线性模型对第i个属性的权重，b是模型的线性偏移量。此外，由于ω直观表达了各属性在预测中的重要性，因此线性模型有很好的可解释性。
 
@@ -65,24 +69,33 @@ $$f(x) = w^Tx + b$$
 
 即：
 
-$$\arg \min_W \sum^m_{i=1}(y^i - x^i\hat{w})^2$$
+$$
+\arg \min_W \sum^m_{i=1}(y^i - x^i\hat{w})^2
+$$
 
 ## 无正则项
 
 我们已知数据集
 
-$$D = {(x^1,y^1),(x^2,y^2),…,(x^m,y^m)}$$
+$$
+D = {(x^1,y^1),(x^2,y^2),…,(x^m,y^m)}
+$$
 
 那么我们就可以设置误差函数$E_{\hat{W}}$(这里使用的是均方误差)，来描述我们的预测值与实际值的偏差情况，则有：
-$$E_{\hat{W}} = \frac{1}{length(X)} ∑(y - x \hat{w})^2$$
+$$
+E_{\hat{W}} = \frac{1}{length(X)} ∑(y - x \hat{w})^2
+$$
 
 把他们换成矩阵的形式：
 
-$$x^i = \begin{bmatrix}
+$$
+x^i = \begin{bmatrix}
 x^i_1 & x^i_2 & x^i_3 & x^i_4 & … &  x^i_n
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
-$$X = \begin{bmatrix}
+$$
+X = \begin{bmatrix}
 x^1 \\ x^2 \\ x^3 \\ x^4 \\ \vdots \\  x^m
 \end{bmatrix}
 Y = \begin{bmatrix}
@@ -90,19 +103,26 @@ y^1 \\ y^2 \\ y^3 \\ y^4 \\ \vdots \\  y^m
 \end{bmatrix}
 W = \begin{bmatrix}
 w^1 \\ w^2 \\ w^3 \\ w^4 \\ \vdots \\  w^n
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 那么我们就有了
 
-$$E_{\hat{W}} = \frac{1}{length(X)} (Y - X \hat{W})^T(Y - X \hat{W})$$
+$$
+E_{\hat{W}} = \frac{1}{length(X)} (Y - X \hat{W})^T(Y - X \hat{W})
+$$
 
 我们的目标是找到一个合适的$W$使得误差函数值最小，那么我们用误差函数对$W$求导：
 
-$$\frac{∂E_{\hat{W}}}{∂\hat{W}} = \frac{2}{length(X)} X^T(X\hat{W} - Y)$$
+$$
+\frac{∂E_{\hat{W}}}{∂\hat{W}} = \frac{2}{length(X)} X^T(X\hat{W} - Y)
+$$
 
 既然是要求最小值，那么我们令导数为零，则有：
 
-$$\frac{∂E_{\hat{W}}}{∂\hat{W}} = 0 → \hat{W} = (X^TX)^{-1}X^TY$$
+$$
+\frac{∂E_{\hat{W}}}{∂\hat{W}} = 0 → \hat{W} = (X^TX)^{-1}X^TY
+$$
 
 ## 加入正则项
 
@@ -110,20 +130,30 @@ $$\frac{∂E_{\hat{W}}}{∂\hat{W}} = 0 → \hat{W} = (X^TX)^{-1}X^TY$$
 
 那么我们希望可以限制模型的复杂度，当然，首先我们需要知道什么量和模型的复杂度相关，在实验过程中，我们会发现$W$的值越大，模型越复杂，那么我们就可以对此加以限制，使得$W$不能取这么大的值，于是我们就有：
 
-$$E_{\hat{W}} = \frac{1}{length(X)} (∑(y - x \hat{w})^2 + λ∑\hat{w}^2)$$
+$$
+E_{\hat{W}} = \frac{1}{length(X)} (∑(y - x \hat{w})^2 + λ∑\hat{w}^2)
+$$
 
 其中λ为正则项在进行拟合过程中占得比重，类似的，我们可以得到：
 
-$$E_{\hat{W}} = \frac{1}{length(X)} ((Y - X \hat{W})^T(Y - X \hat{W}) + λ\hat{W}^T\hat{W})$$
+$$
+E_{\hat{W}} = \frac{1}{length(X)} ((Y - X \hat{W})^T(Y - X \hat{W}) + λ\hat{W}^T\hat{W})
+$$
 
-$$\frac{∂E_{\hat{W}}}{∂\hat{W}} = \frac{2}{length(X)} (X^T(X\hat{W} - Y) + λ\hat{W})$$
+$$
+\frac{∂E_{\hat{W}}}{∂\hat{W}} = \frac{2}{length(X)} (X^T(X\hat{W} - Y) + λ\hat{W})
+$$
 
-$$\frac{∂E_{\hat{W}}}{∂\hat{W}} = 0 → \hat{W} = (X^TX + λI)^{-1}X^TY$$
+$$
+\frac{∂E_{\hat{W}}}{∂\hat{W}} = 0 → \hat{W} = (X^TX + λI)^{-1}X^TY
+$$
 
 # 梯度下降
 ## 梯度下降
 
-$$\hat{W} = \hat{W} - α\frac{∂E_{\hat{W}}}{∂\hat{W}}$$
+$$
+\hat{W} = \hat{W} - α\frac{∂E_{\hat{W}}}{∂\hat{W}}
+$$
 
 随机梯度下降是梯度下降的一种特例，即使用数据集中的某一部分数据进行训练，可以大大减少内存的需求。
 
@@ -145,18 +175,22 @@ $$\hat{W} = \hat{W} - α\frac{∂E_{\hat{W}}}{∂\hat{W}}$$
 
 证明如下：在以$A-$共轭方向组为更新方向时，$p_n$与更新方向$p_0,…,p_{k-1}$均共轭正交。从$x_0$出发，依次沿着$p_0,…,p_{k-1}$进行一维搜索，点的更新步长为最优步长$α_0,…,α_{k-1}$。
 
-$$\begin{array}{lll}
+$$
+\begin{array}{lll}
 x_k &= x_{k-1} + α_{k-1}p_{k-1} \\ 
     &= x_i + \sum_{j=i}^{k-1}α_{j}p_{j} & (i = 0,1,…,k-1)
-\end{array}$$
+\end{array}
+$$
 
-$$\begin{array}{ll}
+$$
+\begin{array}{ll}
 g_k &= ∇f(x_k) \\
     &= Ax_k - b \\ 
     &= Ax_{i} + \sum^{k-1}_{j=i}α_jAp_j - b \\ 
     &= g_{i+1} + \sum^{k-1}_{j=i}α_jAp_j \\ 
 p_i^Tg_k &= p_i^Tg_{i+1} + \sum_{j=i+1}^{k-1}α_jp_i^TAp_j
-\end{array}$$
+\end{array}
+$$
 
 我们每次都优化到当前行进方向的最优点，则有$\frac{df(x_i + αp_i)}{dα}|_{α=α_i} = 0$，而后我们可以得到$p_i^Tg(x_{i+1}) = 0$。由$p_0,p_1,…,p_{k-1}$ 为$A-$共轭组我们得到$\sum_{j=j+1}^{k-1}α_jp_i^TAp_j = 0$。所以我们有$p_ig_k = 0,(i=0,1,…,k-1)$。
 
@@ -170,13 +204,17 @@ p_i^Tg_k &= p_i^Tg_{i+1} + \sum_{j=i+1}^{k-1}α_jp_i^TAp_j
 
 看一下我们上边的公式，我们需要得到每一步需要更新的步长和方向。我们引入残差$r_k = b - Ax_k$，它描述了我们在第k步优化的方向。由于之前提到我们每次更新的方向之间都是共轭的，在该方向上，我们同样直接一次优化到位，那么下一次优化的方向与之前优化的方向都是共轭的，那么即是说，我们这次优化的方向需要从当前残差与之前优化过的方向中构建，我们使用当前残差减去之前优化方向的分量：
 
-$$\begin{array}{ll}
+$$
+\begin{array}{ll}
 p_k &= r_k - \sum_{i < k}\frac{p_i^TAr_k}{p_i^TAp_i}p_i
-\end{array}$$
+\end{array}
+$$
 
 在这个方向上取$\frac{df(x_k + αp_k)}{dα}|_{α=α_k} = 0$，可以得出：
 
-$$α_k = \frac{p_k^T r_k}{p_k^T A p_k}$$
+$$
+α_k = \frac{p_k^T r_k}{p_k^T A p_k}
+$$
 
 [^FxHessian]: 对于 $f(x) = \frac{1}{2}x^TAx + b^Tx$ 而言，$H_xf(x)=A$，已知$A$为正定矩阵，则$f(x)$为严格凸函数。
 
@@ -198,8 +236,12 @@ $$α_k = \frac{p_k^T r_k}{p_k^T A p_k}$$
 
 动量来源于牛顿定律，基本思想是为了找到最优加入“惯性”的影响，当误差曲面中存在平坦区域，SGD就可以更快的学习。
 
-$$V = β * V - α\frac{∂E_{\hat{W}}}{∂\hat{W}}$$
-$$\hat{W} = \hat{W} + V$$
+$$
+V = β * V - α\frac{∂E_{\hat{W}}}{∂\hat{W}}
+$$
+$$
+\hat{W} = \hat{W} + V
+$$
 
 ## 权值衰减(Weight Decay)
 
@@ -207,7 +249,8 @@ $$\hat{W} = \hat{W} + V$$
 
 权值衰减的使用既不是为了提高收敛精确度也不是为了提高收敛速度，其最终目的是防止过拟合。在损失函数中，weight decay是放在正则项（regularization）前面的一个系数，正则项一般指示模型的复杂度，所以weight decay的作用是调节模型复杂度对损失函数的影响，若weight decay很大，则复杂的模型损失函数的值也就大。
 
-$$\omega_{i+1}\leftarrow  \omega_{i} - \alpha \frac{\partial E}{\partial \omega_{i}} - \alpha \lambda \omega _{i}$$ 
+$$
+\omega_{i+1}\leftarrow  \omega_{i} - \alpha \frac{\partial E}{\partial \omega_{i}} - \alpha \lambda \omega _{i}$$ 
 
 上面这个公式基本思想就是减小不重要的参数对最后结果的影响，网络中有用的权重则不会收到Weight decay影响。
 
@@ -217,8 +260,9 @@ $$\omega_{i+1}\leftarrow  \omega_{i} - \alpha \frac{\partial E}{\partial \omega_
 
 在使用梯度下降法求解目标函数$E_{W}$的极小值时，更新公式为$W=W+ v$，其中每次$W$的更新量$v$为$v = - \frac{∂E_{W}}{∂W} * lr$，$\frac{∂E_{W}}{∂W}$为目标函数$E_{W}$对$W$的一阶导数。可以想到，如果能够让学习率随着迭代周期不断衰减变小，那么搜索时迈的步长就能不断减少以减缓震荡。学习率衰减因子由此诞生：
 
-
-$$lr_i = lr_{start} * \frac{1}{1 + δ * i}$$
+$$
+lr_i = lr_{start} * \frac{1}{1 + δ * i}
+$$
 
 上面的公式即为学习率衰减公式，其中$lr_i$为第i次迭代时的学习率，$lr_{start}$为原始学习率，$δ$为一个介于[0.0, 1.0]的小数。
 从公式上可看出：
