@@ -30,7 +30,7 @@ after_success:
   - echo alongwy.top > CNAME
   - git init
   - git config --global user.name "Along"
-  - git config --global user.email "15939423778@163.com"
+  - git config --global user.email "ylfeng@ir.hit.edu.cn"
   - git add .
   - git commit -m "Update Index Pages"
   - git push --force "https://${GH_TOKEN}@${GH_REF}" master:master
