@@ -57,7 +57,7 @@ $$
 >定义2：设$f(n)$和$g(n)$是定义域为自然数集合的函数。如果$lim_{n\rightarrow \infty}\frac{f(n)}{g(n)}=0$，那么$f(n)=o(g(n))$。通俗理解为$f(n)$低于$g(n)$的阶。
 
 $$
-\Theta(g(n)) = \{ f(n):\lim_{n \rightarrow \infty}\frac{f(n)}{g(n)} = 0 \}
+o(g(n)) = \{ f(n):\lim_{n \rightarrow \infty}\frac{f(n)}{g(n)} = 0 \}
 $$
 
   由O记号提供的渐近上界可能是渐近紧确的，也可能是非紧确的。
@@ -80,13 +80,13 @@ $\omega$ 非渐进紧确下界
 >定义1：设$f(n)$和$g(n)$是定义域为自然数集N上的函数。若对于任意正数$c$，都存在$n_0$，使得对一切$n \ge n_0$都有$0 \le cg(n) < f(n)$成立，则称$f(n)$的渐进的非紧确下界是$g(n)$，记作$f(n)= \omega (g(n))$。通俗的说$n$满足一定条件范围内，函数$f(n)$的阶高于函数$g(n)$。
 
 $$
-\Omega(g(n)) = \{ f(n):\forall c, \exists n_0,\forall n \ge n_0,0 \le cg(n) \le f(n) \}
+\omega(g(n)) = \{ f(n):\forall c, \exists n_0,\forall n \ge n_0,0 \le cg(n) \le f(n) \}
 $$
 
 >定义2：设$f(n)$和$g(n)$是定义域为自然数集合的函数。如果$\lim_{n\rightarrow \infty}\frac{f(n)}{g(n)}=\infty$，那么$f(n)=o(g(n))$。通俗理解为$f(n)$高于$g(n)$的阶。
 
 $$
-\Omega(g(n)) = \{ f(n):\lim_{n \rightarrow \infty} \frac{f(n)}{g(n)} = \infty \}
+\omega(g(n)) = \{ f(n):\lim_{n \rightarrow \infty} \frac{f(n)}{g(n)} = \infty \}
 $$
 
 符号总结
