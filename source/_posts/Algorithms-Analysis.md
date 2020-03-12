@@ -174,15 +174,15 @@ Master定理
 
 >Master定理：设$a \ge 1$和$b>1$是常数，$f(n)$是一个函数，$T(n)$是定义在非负整数级上的函数$T(n)=aT(\frac{n}{b})+f(n)$，$T(n)$可以如下求解：
 
-1. 若$f(n) = O(n^{\log_b a-\epsilon})$，$\epsilon > 0$是常数，则$T(n) = \theta(n^{\log_b a})$
-2. 若$f(n) = O(n^{\log_b a})$，则$T(n) = \theta(n^{\log_b a}\lg n)$
-3. 若$f(n) = \Omega(n^{\log_b a + \epsilon})$，$\epsilon > 0$是常数，且对于所有充分大的$n$有$af(\frac{n}{b}) \le cf(n)$,$c < 1$是常数，则$T(n) = \theta(f(n))$
+1. 若$f(n) = O(n^{\log_b a-\epsilon})$，$\epsilon > 0$是常数，则$T(n) = \Theta(n^{\log_b a})$
+2. 若$f(n) = \Theta(n^{\log_b a}\log^\epsilon n)$，则$T(n) = \Theta(n^{\log_b a}\log^{\epsilon+1} n)$
+3. 若$f(n) = \Omega(n^{\log_b a + \epsilon})$，$\epsilon > 0$是常数，且对于所有充分大的$n$有$af(\frac{n}{b}) \le cf(n)$,$c < 1$是常数，则$T(n) = \Theta(f(n))$
 
 换言之，我们比较$f(n)$和$n^{\log_b a}$：
 
-1. 则$n^{\log_b a}$大，$T(n) = \theta(n^{\log_b a})$
-2. 若$f(n)$大，则$T(n) = \theta(f(n))$
-3. 若$f(n)$与$n^{\log_b a}$同阶，$T(n) = \theta(n^{\log_b a}\lg n) = \theta(n^{\log_b a}\lg n)$
+1. 则$n^{\log_b a}$大，$T(n) = \Theta(n^{\log_b a})$
+2. 若$f(n)$大，则$T(n) = \Theta(f(n))$
+3. 若$f(n)$与$n^{\log_b a}\log^\epsilon n$同阶，$T(n) = \Theta(n^{\log_b a}\log^{\epsilon+1} n)$
 
 摊还分析
 ======
