@@ -12,7 +12,11 @@ backend:
   name: github
   repo: alongwy/website
   branch: index
-  site_id: cms.netlify.com
+  site_domain: cms.netlify.com
+  api_root: https://api.github.com
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+  cms_label_prefix: netlify-cms/
 
 media_folder: "static/img" # Folder where user uploaded files should go
 public_folder: "img"
