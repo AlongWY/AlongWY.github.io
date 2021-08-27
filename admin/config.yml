@@ -12,6 +12,7 @@ backend:
   name: github
   repo: alongwy/website
   branch: index
+  base_url: https://alongwy.top
 
 media_folder: "static/img" # Folder where user uploaded files should go
 public_folder: "img"
