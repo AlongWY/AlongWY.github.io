@@ -12,7 +12,6 @@ backend:
   name: github
   repo: alongwy/website
   branch: index
-  site_domain: cms.netlify.com
   api_root: https://api.github.com
   base_url: https://api.netlify.com
   auth_endpoint: auth
