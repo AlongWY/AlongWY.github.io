@@ -9,12 +9,10 @@
 #
 
 backend:
-  name: git-gateway
+  name: github
   repo: alongwy/website
   branch: index
   cms_label_prefix: netlify-cms/
-  accept_roles:
-    - admin
 
 media_folder: "static/img" # Folder where user uploaded files should go
 public_folder: "img"
