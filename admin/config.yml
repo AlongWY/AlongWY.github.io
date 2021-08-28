@@ -34,7 +34,7 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "正文", name: "body", widget: "markdown"}
        
   - name: "Projects" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "项目" # Used in the UI, ie.: "New Post"
+    label: "开源项目" # Used in the UI, ie.: "New Post"
     folder: "content/projects/creations" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
@@ -51,7 +51,7 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "正文", name: "body", widget: "markdown"}
        
   - name: "Contributions" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "贡献" # Used in the UI, ie.: "New Post"
+    label: "开源贡献" # Used in the UI, ie.: "New Post"
     folder: "content/projects/contributions" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
@@ -123,11 +123,11 @@ collections: # A list of collections the CMS should be able to edit
                   - { label: '链接', name: 'link', widget: 'string' }
               
               - { label: '显示技能', name: 'showSkills', widget: 'boolean', required: false }
-              - { label: '显示项目', name: 'showProjects', widget: 'boolean', required: false }
               - { label: '显示博客', name: 'showBlog', widget: 'boolean', required: false }
               - { label: '显示二维码', name: 'showQr', widget: 'boolean', required: false }
               - { label: '显示出版物', name: 'showPublications', widget: 'boolean', required: false }
-              - { label: '显示开源项目', name: 'showOpenSource', widget: 'boolean', required: false }
+              - { label: '显示开源项目', name: 'showProjects', widget: 'boolean', required: false }
+              - { label: '显示开源贡献', name: 'showOpenSource', widget: 'boolean', required: false }
               - { label: '显示工作经历', name: 'showExperience', widget: 'boolean', required: false }
               - { label: '显示教育经历', name: 'showEducation', widget: 'boolean', required: false }
               
