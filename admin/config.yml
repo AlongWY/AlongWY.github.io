@@ -44,7 +44,6 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "标签", name: "tags", widget: "list", required: false}
       - {label: "特性", name: "fact", widget: "string", default: "used by 20% of Fortune 500 companies!", required: false}
       - {label: "权重 (越小越靠前)", name: "weight", widget: "number", valueType: float, step: 10, min: 0, max: 1000}
-      - {label: "网站地图", name: "sitemap", widget: "object", field: {label: weight, name: weight, widget: "number", valueType: float, step: 0.1, min: 0.0, max: 1.0}}
       - {label: "正文", name: "body", widget: "markdown"}
        
   - name: "Contributions" # Used in routes, ie.: /admin/collections/:slug/edit
@@ -61,7 +60,6 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "标签", name: "tags", widget: "list", required: false}
       - {label: "特性", name: "fact", widget: "string", default: "used by 20% of Fortune 500 companies!", required: false}
       - {label: "权重 (越小越靠前)", name: "weight", widget: "number", valueType: float, step: 10, min: 0, max: 1000}
-      - {label: "网站地图", name: "sitemap", widget: "object", field: {label: weight, name: weight, widget: "number", valueType: float, step: 0.1, min: 0.0, max: 1.0}}
       - {label: "正文", name: "body", widget: "markdown"}
        
   - name: "Publications" # Used in routes, ie.: /admin/collections/:slug/edit
@@ -73,12 +71,11 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "日期", name: "date", widget: "datetime"} 
       - {label: "精选", name: "featured", widget: "boolean", required: false}
       - {label: "项目/网址链接", name: "link", widget: "string"}
-      - {label: "项目图片", name: image, widget: 'image' }
+      - {label: "出版物类型", name: pubtype, widget: "string", default: "Article"}
+      - {label: "图片", name: image, widget: 'image' }
       - {label: "简介", name: "description", widget: "string"}
       - {label: "标签", name: "tags", widget: "list", required: false}
       - {label: "特性", name: "fact", widget: "string", default: "used by 20% of Fortune 500 companies!", required: false}
-      - {label: "权重 (越小越靠前)", name: "weight", widget: "number", valueType: float, step: 10, min: 0, max: 1000}
-      - {label: "网站地图", name: "sitemap", widget: "object", field: {label: weight, name: weight, widget: "number", valueType: float, step: 0.1, min: 0.0, max: 1.0}}
       - {label: "正文", name: "body", widget: "markdown"}
        
   - name: 'settings'
