@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 	<title>Feng - Datasets</title>
-	<subtitle>A clean resume theme</subtitle>
-	<link href="https://resume.alongwy.top/tags/datasets/atom.xml" rel="self" type="application/atom+xml"/>
-  <link href="https://resume.alongwy.top"/>
+	<subtitle>Along&#x27;s resume</subtitle>
+	<link href="https://alongwy.top/tags/datasets/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://alongwy.top"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
 	<updated>2021-08-28T14:13:14.674+00:00</updated>
-	<id>https://resume.alongwy.top/tags/datasets/atom.xml</id>
+	<id>https://alongwy.top/tags/datasets/atom.xml</id>
 	<entry xml:lang="en">
 		<title>Huggingface&#x2F;datasets</title>
 		<published>2021-08-28T14:13:14.674+00:00</published>
 		<updated>2021-08-28T14:13:14.674+00:00</updated>
-		<link href="https://resume.alongwy.top/opensource/huggingface-datasets/" type="text/html"/>
-		<id>https://resume.alongwy.top/opensource/huggingface-datasets/</id>
+		<link href="https://alongwy.top/opensource/huggingface-datasets/" type="text/html"/>
+		<id>https://alongwy.top/opensource/huggingface-datasets/</id>
 		<content type="html">&lt;p&gt;🤗 Datasets is a lightweight library providing two main features:&lt;&#x2F;p&gt;
 &lt;p&gt;one-line dataloaders for many public datasets: &lt;&#x2F;p&gt;
 &lt;ul&gt;

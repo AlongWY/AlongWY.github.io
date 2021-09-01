@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 	<title>Feng - Rust</title>
-	<subtitle>A clean resume theme</subtitle>
-	<link href="https://resume.alongwy.top/tags/rust/atom.xml" rel="self" type="application/atom+xml"/>
-  <link href="https://resume.alongwy.top"/>
+	<subtitle>Along&#x27;s resume</subtitle>
+	<link href="https://alongwy.top/tags/rust/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://alongwy.top"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
 	<updated>2021-08-28T15:00:30.183+00:00</updated>
-	<id>https://resume.alongwy.top/tags/rust/atom.xml</id>
+	<id>https://alongwy.top/tags/rust/atom.xml</id>
 	<entry xml:lang="en">
 		<title>gpustat: a rust-version of gpustat.</title>
 		<published>2021-08-28T15:00:30.183+00:00</published>
 		<updated>2021-08-28T15:00:30.183+00:00</updated>
-		<link href="https://resume.alongwy.top/projects/gpustat-a-rust-version-of-gpustat/" type="text/html"/>
-		<id>https://resume.alongwy.top/projects/gpustat-a-rust-version-of-gpustat/</id>
+		<link href="https://alongwy.top/projects/gpustat-a-rust-version-of-gpustat/" type="text/html"/>
+		<id>https://alongwy.top/projects/gpustat-a-rust-version-of-gpustat/</id>
 		<content type="html">&lt;h3 id=&quot;gpustat&quot;&gt;gpustat&lt;&#x2F;h3&gt;
 &lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;crates.io&#x2F;crates&#x2F;gpustat&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;img.shields.io&#x2F;crates&#x2F;v&#x2F;gpustat.svg&quot; alt=&quot;Crates.io&quot; &#x2F;&gt;&lt;&#x2F;a&gt;
-&lt;a href=&quot;https:&#x2F;&#x2F;resume.alongwy.top&#x2F;projects&#x2F;gpustat-a-rust-version-of-gpustat&#x2F;LICENSE&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;img.shields.io&#x2F;github&#x2F;license&#x2F;alongwy&#x2F;gpustat.svg?maxAge=86400&quot; alt=&quot;license&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;alongwy.top&#x2F;projects&#x2F;gpustat-a-rust-version-of-gpustat&#x2F;LICENSE&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;img.shields.io&#x2F;github&#x2F;license&#x2F;alongwy&#x2F;gpustat.svg?maxAge=86400&quot; alt=&quot;license&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;A rust version of &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;wookayin&#x2F;gpustat&quot;&gt;gpustat&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 &lt;p&gt;Just &lt;em&gt;less&lt;&#x2F;em&gt; than nvidia-smi?&lt;&#x2F;p&gt;
 &lt;h4 id=&quot;usage&quot;&gt;Usage&lt;&#x2F;h4&gt;
@@ -49,15 +49,15 @@
 &lt;li&gt;&lt;code&gt;along(33407M)&lt;&#x2F;code&gt;: Username of the running processes owner on GPU (and their memory usage)&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h4 id=&quot;license&quot;&gt;License&lt;&#x2F;h4&gt;
-&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;resume.alongwy.top&#x2F;projects&#x2F;gpustat-a-rust-version-of-gpustat&#x2F;LICENSE&quot;&gt;GPL v2 License&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;alongwy.top&#x2F;projects&#x2F;gpustat-a-rust-version-of-gpustat&#x2F;LICENSE&quot;&gt;GPL v2 License&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="en">
 		<title>NotFeed: A RSS Reader on GitHub</title>
 		<published>2021-08-28T11:40:32.885+00:00</published>
 		<updated>2021-08-28T11:40:32.885+00:00</updated>
-		<link href="https://resume.alongwy.top/projects/notfeed-a-rss-reader-on-github/" type="text/html"/>
-		<id>https://resume.alongwy.top/projects/notfeed-a-rss-reader-on-github/</id>
+		<link href="https://alongwy.top/projects/notfeed-a-rss-reader-on-github/" type="text/html"/>
+		<id>https://alongwy.top/projects/notfeed-a-rss-reader-on-github/</id>
 		<content type="html">&lt;h3 id=&quot;notcraft-notfeed&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;notcraft.alongwy.top&#x2F;NotFeed&#x2F;&quot;&gt;NotCraft::NotFeed&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
 &lt;p&gt;An RSS reader running entirely from your GitHub repo.&lt;&#x2F;p&gt;
 &lt;ul&gt;

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 	<title>Feng - RSS</title>
-	<subtitle>A clean resume theme</subtitle>
-	<link href="https://resume.alongwy.top/tags/rss/atom.xml" rel="self" type="application/atom+xml"/>
-  <link href="https://resume.alongwy.top"/>
+	<subtitle>Along&#x27;s resume</subtitle>
+	<link href="https://alongwy.top/tags/rss/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://alongwy.top"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
 	<updated>2021-08-28T11:40:32.885+00:00</updated>
-	<id>https://resume.alongwy.top/tags/rss/atom.xml</id>
+	<id>https://alongwy.top/tags/rss/atom.xml</id>
 	<entry xml:lang="en">
 		<title>NotFeed: A RSS Reader on GitHub</title>
 		<published>2021-08-28T11:40:32.885+00:00</published>
 		<updated>2021-08-28T11:40:32.885+00:00</updated>
-		<link href="https://resume.alongwy.top/projects/notfeed-a-rss-reader-on-github/" type="text/html"/>
-		<id>https://resume.alongwy.top/projects/notfeed-a-rss-reader-on-github/</id>
+		<link href="https://alongwy.top/projects/notfeed-a-rss-reader-on-github/" type="text/html"/>
+		<id>https://alongwy.top/projects/notfeed-a-rss-reader-on-github/</id>
 		<content type="html">&lt;h3 id=&quot;notcraft-notfeed&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;notcraft.alongwy.top&#x2F;NotFeed&#x2F;&quot;&gt;NotCraft::NotFeed&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
 &lt;p&gt;An RSS reader running entirely from your GitHub repo.&lt;&#x2F;p&gt;
 &lt;ul&gt;

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 	<title>Feng - EMNLP</title>
-	<subtitle>A clean resume theme</subtitle>
-	<link href="https://resume.alongwy.top/tags/emnlp/atom.xml" rel="self" type="application/atom+xml"/>
-  <link href="https://resume.alongwy.top"/>
+	<subtitle>Along&#x27;s resume</subtitle>
+	<link href="https://alongwy.top/tags/emnlp/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://alongwy.top"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
 	<updated>2021-08-28T11:00:37.434+00:00</updated>
-	<id>https://resume.alongwy.top/tags/emnlp/atom.xml</id>
+	<id>https://alongwy.top/tags/emnlp/atom.xml</id>
 	<entry xml:lang="en">
 		<title>N-LTP: A Open-source Neural Chinese Language Technology Platform with Pretrained Models</title>
 		<published>2021-08-28T11:00:37.434+00:00</published>
 		<updated>2021-08-28T11:00:37.434+00:00</updated>
-		<link href="https://resume.alongwy.top/publications/n-ltp-a-open-source-neural-chinese-language-technology-platform-with-pretrained-models/" type="text/html"/>
-		<id>https://resume.alongwy.top/publications/n-ltp-a-open-source-neural-chinese-language-technology-platform-with-pretrained-models/</id>
+		<link href="https://alongwy.top/publications/n-ltp-a-open-source-neural-chinese-language-technology-platform-with-pretrained-models/" type="text/html"/>
+		<id>https://alongwy.top/publications/n-ltp-a-open-source-neural-chinese-language-technology-platform-with-pretrained-models/</id>
 		<content type="html">&lt;p&gt;An open-source neural language technology platform supporting six fundamental Chinese NLP tasks: &lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;lexical analysis (Chinese word segmentation, part-of-speech tagging, and named entity recognition)&lt;&#x2F;li&gt;
