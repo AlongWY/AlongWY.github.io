@@ -1,13 +1,3 @@
-#
-#. This config file adds support for Netlify CMS, exposed at /admin on the running site.
-# In order to use this on your site,
-#. 1) replace instances of "exampleSite/......" with the appropriate paths, relative from repository root.
-#. 2) replace repo path in `backend` settings, and set branch to master.
-#  3) Optionally enable the [editor workflow](https://www.netlifycms.org/docs/configuration-options/#publish-mode) which uses PRs for content changes
-#  4) Optionally enable [open authoring](https://www.netlifycms.org/docs/open-authoring/) for community sites, which requires #3
-#  
-#
-
 backend:
   name: github
   repo: alongwy/website
@@ -15,144 +5,161 @@ backend:
   cms_label_prefix: netlify-cms/
   site_domain: alongwy.netlify.com
 
-locale: 'zh_Hans'
-media_folder: "static/img" # Folder where user uploaded files should go
+locale: "zh_Hans"
+media_folder: "static/img"
 public_folder: "/img"
 
-collections: # A list of collections the CMS should be able to edit
-  - name: "Blog" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "博客" # Used in the UI, ie.: "New Post"
-    folder: "content/blog" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - {label: "标题", name: "title", widget: "string"}
-      - {label: "日期", name: "date", widget: "datetime"}
-      - {label: "标签", name: "tags", widget: "list", required: false}
-      - {label: "精选", name: "featured", widget: "boolean", required: false}
-      - {label: "网站地图", name: "sitemap", widget: "object", field: {label: "优先级", name: priority, widget: "number", valueType: float, step: 0.1, min: 0.0, max: 1.0, required: false}}
-      - {label: "权重 (越小越靠前)", name: "weight", widget: "number", valueType: float, step: 10, min: 0, max: 1000}
-      - {label: "正文", name: "body", widget: "markdown"}
-       
-  - name: "Projects" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "开源项目" # Used in the UI, ie.: "New Post"
-    folder: "content/projects/creations" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - {label: "标题", name: "title", widget: "string"}     
-      - {label: "日期", name: "date", widget: "datetime"} 
-      - {label: "精选", name: "featured", widget: "boolean", required: false}
-      - {label: "项目/网址链接", name: "link", widget: "string"}
-      - {label: "项目图片", name: image, widget: 'image' }
-      - {label: "简介", name: "description", widget: "string"}
-      - {label: "标签", name: "tags", widget: "list", required: false}
-      - {label: "特性", name: "fact", widget: "string", default: "used by 20% of Fortune 500 companies!", required: false}
-      - {label: "网站地图", name: "sitemap", widget: "object", field: {label: "优先级", name: priority, widget: "number", valueType: float, step: 0.1, min: 0.0, max: 1.0, required: false}}
-      - {label: "权重 (越小越靠前)", name: "weight", widget: "number", valueType: float, step: 10, min: 0, max: 1000}
-      - {label: "正文", name: "body", widget: "markdown"}
-       
-  - name: "Contributions" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "开源贡献" # Used in the UI, ie.: "New Post"
-    folder: "content/projects/contributions" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - {label: "标题", name: "title", widget: "string"}     
-      - {label: "日期", name: "date", widget: "datetime"} 
-      - {label: "精选", name: "featured", widget: "boolean", required: false}
-      - {label: "项目/网址链接", name: "link", widget: "string"}
-      - {label: "项目图片", name: image, widget: 'image' }
-      - {label: "简介", name: "description", widget: "string"}
-      - {label: "标签", name: "tags", widget: "list", required: false}
-      - {label: "特性", name: "fact", widget: "string", default: "used by 20% of Fortune 500 companies!", required: false}
-      - {label: "网站地图", name: "sitemap", widget: "object", field: {label: "优先级", name: priority, widget: "number", valueType: float, step: 0.1, min: 0.0, max: 1.0, required: false}}
-      - {label: "权重 (越小越靠前)", name: "weight", widget: "number", valueType: float, step: 10, min: 0, max: 1000}
-      - {label: "正文", name: "body", widget: "markdown"}
-       
-  - name: "Publications" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "出版物" # Used in the UI, ie.: "New Post"
-    folder: "content/publications" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - {label: "标题", name: "title", widget: "string"}     
-      - {label: "日期", name: "date", widget: "datetime"} 
-      - {label: "精选", name: "featured", widget: "boolean", required: false}
-      - {label: "项目/网址链接", name: "link", widget: "string"}
-      - {label: "出版物类型", name: pubtype, widget: "string", default: "Article"}
-      - {label: "图片", name: image, widget: 'image' }
-      - {label: "简介", name: "description", widget: "string"}
-      - {label: "标签", name: "tags", widget: "list", required: false}
-      - {label: "特性", name: "fact", widget: "string", default: "used by 20% of Fortune 500 companies!", required: false}
-      - {label: "网站地图", name: "sitemap", widget: "object", field: {label: "优先级", name: priority, widget: "number", valueType: float, step: 0.1, min: 0.0, max: 1.0, required: false}}
-      - {label: "权重 (越小越靠前)", name: "weight", widget: "number", valueType: float, step: 10, min: 0, max: 1000}
-      - {label: "正文", name: "body", widget: "markdown"}
-       
-  - name: 'settings'
-    label: '设置'
-    delete: false # Prevent users from deleting documents in this collection
+collections:
+  - name: "Blog"
+    label: "博客"
+    folder: "content/blog"
+    create: true
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "日期", name: "date", widget: "datetime" }
+      - { label: "简介", name: "description", widget: "string" }
+      - label: "分类"
+        name: "taxonomies"
+        widget: "object"
+        fields:
+          - { label: "标签", name: "tags", widget: "list", required: false }
+      - label: "扩展"
+        name: "extra"
+        widget: "object"
+        fields:
+          - { label: "精选", name: "featured", widget: "boolean", required: false }
+          - { label: "项目/网址链接", name: "link", widget: "string" }
+          - { label: "项目图片", name: image, widget: "image" }
+      - { label: "正文", name: "body", widget: "markdown" }
+
+  - name: "Projects"
+    label: "开源项目"
+    folder: "content/projects"
+    create: true
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "日期", name: "date", widget: "datetime" }
+      - { label: "简介", name: "description", widget: "string" }
+      - label: "分类"
+        name: "taxonomies"
+        widget: "object"
+        fields:
+          - { label: "标签", name: "tags", widget: "list", required: false }
+      - label: "扩展"
+        name: "extra"
+        widget: "object"
+        fields:
+          - { label: "精选", name: "featured", widget: "boolean", required: false }
+          - { label: "项目/网址链接", name: "link", widget: "string" }
+          - { label: "项目图片", name: image, widget: "image" }
+      - { label: "正文", name: "body", widget: "markdown" }
+
+  - name: "Contributions"
+    label: "开源贡献"
+    folder: "content/opensource"
+    create: true
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "日期", name: "date", widget: "datetime" }
+      - { label: "简介", name: "description", widget: "string" }
+      - label: "分类"
+        name: "taxonomies"
+        widget: "object"
+        fields:
+          - { label: "标签", name: "tags", widget: "list", required: false }
+      - label: "扩展"
+        name: "extra"
+        widget: "object"
+        fields:
+          - { label: "精选", name: "featured", widget: "boolean", required: false }
+          - { label: "项目/网址链接", name: "link", widget: "string" }
+          - { label: "项目图片", name: image, widget: "image" }
+      - { label: "正文", name: "body", widget: "markdown" }
+
+  - name: "Publications"
+    label: "出版物"
+    folder: "content/publications"
+    create: true
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "日期", name: "date", widget: "datetime" }
+      - { label: "简介", name: "description", widget: "string" }
+      - label: "分类"
+        name: "taxonomies"
+        widget: "object"
+        fields:
+          - { label: "标签", name: "tags", widget: "list", required: false }
+      - label: "扩展"
+        name: "extra"
+        widget: "object"
+        fields:
+          - { label: "精选", name: "featured", widget: "boolean", required: false }
+          - { label: "项目/网址链接", name: "link", widget: "string" }
+          - { label: "项目图片", name: image, widget: "image" }
+      - { label: "正文", name: "body", widget: "markdown" }
+
+  - name: "settings"
+    label: "设置"
+    delete: false
     editor:
       preview: false
     files:
-      - name: 'general'
-        label: '网站设置'
-        file: 'config.toml'
+      - name: "general"
+        label: "网站设置"
+        file: "config.toml"
         extension: toml
-        description: '通用网站设置'
+        description: "网站设置"
         fields:
-          - { label: '标题', name: 'title', widget: 'string' }
-          - { label: '网址', name: 'baseURL', widget: 'string' }
-          - { label: '主题', name: 'theme', widget: 'hidden', default: "hugo-resume" }
-          - { label: '语言', name: 'languageCode', widget: 'hidden', default: "en-us" }
-          - { label: '代码边框', name: 'PygmentsCodeFences', widget: 'boolean', required: false }
-          - { label: '语法推断', name: 'PygmentsCodeFencesGuessSyntax', widget: 'boolean', required: false }
-          - { label: '高亮风格', name: 'PygmentsStyle', widget: 'string' }
-          - { label: '高亮设置', name: 'PygmentsOptions', widget: 'string' }
-          - name: 'params'
-            label: '参数'
-            widget: 'object'
-            fields: 
-              - { label: '姓氏', name: 'firstName', widget: 'string' }
-              - { label: '姓名', name: 'lastName', widget: 'string' }
-              - { label: '地址', name: address, widget: 'string' }
-              - { label: '照片', name: profileImage, widget: 'image' }
-              - { label: '邮箱', name: 'email', widget: 'string' }
-              - { label: '电话号码', name: 'phone', widget: 'string' }
-              - label: '社交'
-                name: 'handles'
-                widget: 'list'
-                fields: 
-                  - { label: '方式', name: 'name', widget: 'string' }
-                  - { label: '链接', name: 'link', widget: 'string' }
-              
-              - { label: '显示技能', name: 'showSkills', widget: 'boolean', required: false }
-              - { label: '显示博客', name: 'showBlog', widget: 'boolean', required: false }
-              - { label: '显示二维码', name: 'showQr', widget: 'boolean', required: false }
-              - { label: '显示出版物', name: 'showPublications', widget: 'boolean', required: false }
-              - { label: '显示开源项目', name: 'showProjects', widget: 'boolean', required: false }
-              - { label: '显示开源贡献', name: 'showOpenSource', widget: 'boolean', required: false }
-              - { label: '显示工作经历', name: 'showExperience', widget: 'boolean', required: false }
-              - { label: '显示教育经历', name: 'showEducation', widget: 'boolean', required: false }
-              
-
-              - { label: '网站图标', name: 'favicon', widget: 'image' }
-              - name: 'google'
-                label: 'Google 统计'
-                widget: 'object'
-                fields: 
-                  - { label: 'analytics', name: 'analytics', widget: 'object',fields: [{ label: 'Tracker ID', name: 'trackerID', widget: 'string' }]  }
-              - name: 'baidu'
-                label: '百度统计'
-                widget: 'object'
-                fields: 
-                  - { label: 'analytics', name: 'analytics', widget: 'object',fields: [{ label: 'Tracker ID', name: 'trackerID', widget: 'string' }]  }
-              
-          - { label: '显示 Git Commit 信息', name: 'enableGitInfo', widget: 'boolean', required: false }
-          - name: 'outputs'
-            label: '输出'
-            widget: 'list'
+          - { label: "标题", name: "title", widget: "string" }
+          - name: "extra"
+            label: "参数"
+            widget: "object"
             fields:
-              - { name: '格式', label: 'home', widget: list, default: ['HTML','JSON'] }
-          - name: 'taxonomies'
-            label: '分类方法'
-            widget: 'list'
-            fields: 
-              - { name: '标签', label: 'tag', widget: string, default: 'tags' }
-          
+              - { label: "姓氏", name: "firstName", widget: "string" }
+              - { label: "姓名", name: "lastName", widget: "string" }
+              - { label: "地址", name: address, widget: "string" }
+              - { label: "照片", name: profileImage, widget: "image" }
+              - { label: "邮箱", name: "email", widget: "string" }
+              - { label: "电话号码", name: "phone", widget: "string" }
+              - {
+                  label: "显示技能",
+                  name: "showSkills",
+                  widget: "boolean",
+                  required: false,
+                }
+              - {
+                  label: "显示博客",
+                  name: "showBlog",
+                  widget: "boolean",
+                  required: false,
+                }
+              - {
+                  label: "显示出版物",
+                  name: "showPublications",
+                  widget: "boolean",
+                  required: false,
+                }
+              - {
+                  label: "显示开源项目",
+                  name: "showProjects",
+                  widget: "boolean",
+                  required: false,
+                }
+              - {
+                  label: "显示开源贡献",
+                  name: "showOpenSource",
+                  widget: "boolean",
+                  required: false,
+                }
+              - {
+                  label: "显示工作经历",
+                  name: "showExperience",
+                  widget: "boolean",
+                  required: false,
+                }
+              - {
+                  label: "显示教育经历",
+                  name: "showEducation",
+                  widget: "boolean",
+                  required: false,
+                }

@@ -21,10 +21,13 @@
 
 
   
+  
+<!-- RSS -->
 
-<link rel="alternate" type="application/rss+xml" title="RSS"
-  href="https://resume.alongwy.top/tags/Datasets/rss.xml">
+<link rel="alternate" type="application/atom+xml" title="RSS" href="https://resume.alongwy.top/atom.xml">
 
+
+  
 
   
   
@@ -76,30 +79,80 @@
     
 <div class="container is-fluid" style="min-height: 100vh;">
   <div class="is-flex is-flex-direction-column is-justify-content-center" style="min-height: 100vh;">
-    <h1>Datasets</h1>
+    <h2>NotFeed: A RSS Reader on GitHub</h2>
     
-    
-    <div class="card mb-5">
-      <header class="card-header">
-        <p class="card-header-title">
-          <a href="https://resume.alongwy.top/opensource/huggingface-datasets/">Huggingface&#x2F;datasets</a>
-        </p>
-      </header>
-      
-      <div class="card-content">
-        <div class="content">
-          <p>🤗 The largest hub of ready-to-use datasets for ML models with fast, easy-to-use and efficient data manipulation tools</p>
+    <div class="content">
+      <h3 id="notcraft-notfeed"><a href="https://notcraft.alongwy.top/NotFeed/">NotCraft::NotFeed</a></h3>
+<p>An RSS reader running entirely from your GitHub repo.</p>
+<ul>
+<li>Free hosting on <a href="https://pages.github.com/">GitHub Pages</a>. No ads. No third party tracking.</li>
+<li>No need for backend. Content updates via <a href="https://github.com/features/actions">GitHub Actions</a>.</li>
+<li>Customizable layouts and styles via templating and theming API. Just bring your HTML and CSS.</li>
+<li>Free and open source. No third-party tracking.</li>
+</ul>
+<h3 id="how-to-use-it">How to use it?</h3>
+<h4 id="github-pages">Github Pages</h4>
+<ol>
+<li>
+<p>Use the <a href="https://github.com/NotCraft/NotFeed-Template">NotFeed-Template</a> generate your own repository.</p>
+</li>
+<li>
+<p>In the repository root, open <code>Config.toml</code> file, click the &quot;Pencil (Edit this file)&quot; button to edit.</p>
+</li>
+<li>
+<p>Remove <code>#</code> to uncommend the <code>cacheUrl</code> property, replace <code>&lt;github_username&gt;</code> with your GitHub username, and
+replace <code>&lt;repo&gt;</code> with your GitHub repo name.</p>
+</li>
+<li>
+<p>In the sources, update the items to the sources you want to follow. The final content of the file should look similar
+to this:</p>
+<pre data-lang="toml" class="language-toml "><code class="language-toml" data-lang="toml"># Config.toml
 
-          <a href="https:&#x2F;&#x2F;resume.alongwy.top&#x2F;opensource&#x2F;huggingface-datasets&#x2F;">Read More</a>
-        </div>
-      </div>
-      
+site_title = &quot;ArxivDaily&quot;
+cache_max_days = 7
+sources = [
+  &quot;https:&#x2F;&#x2F;export.arxiv.org&#x2F;rss&#x2F;cs.CL&quot;
+]
+# proxy = &quot;http:&#x2F;&#x2F;127.0.0.1:7890&quot; ## Optional: default is None
+# statics_dir   = &quot;statics&quot;       ## Optional: default is &quot;statics&quot;
+# templates_dir = &quot;includes&quot;      ## Optional: default is &quot;includes&quot;
+# cache_url = &quot;https:&#x2F;&#x2F;GITHUB_USERNAME.github.io&#x2F;REPO_NAME&#x2F;cache.json&quot;
+# minify = true
+# [scripts]
+# highlight = &quot;scripts&#x2F;highlight.rhai&quot;
+</code></pre>
+</li>
+<li>
+<p>Scroll to the bottom of the page, click &quot;Commit changes&quot; button.</p>
+</li>
+<li>
+<p>Once the rebuild finishes, your feed will be available at <code>https://&lt;github_username&gt;.github.io/&lt;repo&gt;</code></p>
+</li>
+</ol>
+<h4 id="localhost">Localhost</h4>
+<ol>
+<li>
+<p>Clone the <a href="https://github.com/NotCraft/NotFeed-Template">NotFeed-Template</a> repository.</p>
+</li>
+<li>
+<p>Edit <code>Config.toml</code> file.</p>
+</li>
+<li>
+<p>Run <code>notfeed</code></p>
+<ul>
+<li>build: <code>notfeed build</code></li>
+<li>serve: <code>notfeed serve --addr 127.0.0.1 --port 8080</code> or simply <code>notfeed serve</code></li>
+</ul>
+</li>
+</ol>
+<h4 id="thanks">Thanks</h4>
+<ul>
+<li>Inspired by <a href="https://github.com/osmoscraft/osmosfeed">osmos::feed</a></li>
+</ul>
+
     </div>
-    
-    
   </div>
 </div>
-
 
   </div>
   <!-- 

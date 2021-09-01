@@ -21,10 +21,13 @@
 
 
   
+  
+<!-- RSS -->
 
-<link rel="alternate" type="application/rss+xml" title="RSS"
-  href="https://resume.alongwy.top/tags/Datasets/rss.xml">
+<link rel="alternate" type="application/atom+xml" title="RSS" href="https://resume.alongwy.top/atom.xml">
 
+
+  
 
   
   
@@ -76,30 +79,50 @@
     
 <div class="container is-fluid" style="min-height: 100vh;">
   <div class="is-flex is-flex-direction-column is-justify-content-center" style="min-height: 100vh;">
-    <h1>Datasets</h1>
+    <h2>gpustat: a rust-version of gpustat.</h2>
     
-    
-    <div class="card mb-5">
-      <header class="card-header">
-        <p class="card-header-title">
-          <a href="https://resume.alongwy.top/opensource/huggingface-datasets/">Huggingface&#x2F;datasets</a>
-        </p>
-      </header>
-      
-      <div class="card-content">
-        <div class="content">
-          <p>🤗 The largest hub of ready-to-use datasets for ML models with fast, easy-to-use and efficient data manipulation tools</p>
+    <div class="content">
+      <h3 id="gpustat">gpustat</h3>
+<p><a href="https://crates.io/crates/gpustat"><img src="https://img.shields.io/crates/v/gpustat.svg" alt="Crates.io" /></a>
+<a href="https://resume.alongwy.top/projects/gpustat-a-rust-version-of-gpustat/LICENSE"><img src="https://img.shields.io/github/license/alongwy/gpustat.svg?maxAge=86400" alt="license" /></a></p>
+<p>A rust version of <a href="https://github.com/wookayin/gpustat">gpustat</a>.</p>
+<p>Just <em>less</em> than nvidia-smi?</p>
+<h4 id="usage">Usage</h4>
+<p><code>$ gpustat</code></p>
+<p>Options:</p>
+<ul>
+<li><code>--color</code>            : Force colored output (even when stdout is not a tty)</li>
+<li><code>--no-color</code>         : Suppress colored output</li>
+<li><code>-u</code>, <code>--show-user</code>  : Display username of the process owner</li>
+<li><code>-c</code>, <code>--show-cmd</code>   : Display the process name</li>
+<li><code>-f</code>, <code>--show-full-cmd</code>   : Display full command and cpu stats of running process</li>
+<li><code>-p</code>, <code>--show-pid</code>   : Display PID of the process</li>
+<li><code>-F</code>, <code>--show-fan</code>   : Display GPU fan speed</li>
+<li><code>-e</code>, <code>--show-codec</code> : Display encoder and/or decoder utilization</li>
+<li><code>-a</code>, <code>--show-all</code>   : Display all gpu properties above</li>
+</ul>
+<h4 id="quick-installation">Quick Installation</h4>
+<p>Install from Cargo:</p>
+<pre><code>cargo install gpustat
+</code></pre>
+<h4 id="default-display">Default display</h4>
+<blockquote>
+<p>[0] | A100-PCIE-40GB | 65'C | 75 % | 33409 / 40536 MB | along(33407M)</p>
+</blockquote>
+<ul>
+<li><code>[0]</code>: GPUindex (starts from 0) as PCI_BUS_ID</li>
+<li><code>A100-PCIE-40GB</code>: GPU name</li>
+<li><code>65'C</code>: Temperature</li>
+<li><code>75 %</code>: Utilization</li>
+<li><code>33409 / 40536 MB</code>: GPU Memory Usage</li>
+<li><code>along(33407M)</code>: Username of the running processes owner on GPU (and their memory usage)</li>
+</ul>
+<h4 id="license">License</h4>
+<p><a href="https://resume.alongwy.top/projects/gpustat-a-rust-version-of-gpustat/LICENSE">GPL v2 License</a></p>
 
-          <a href="https:&#x2F;&#x2F;resume.alongwy.top&#x2F;opensource&#x2F;huggingface-datasets&#x2F;">Read More</a>
-        </div>
-      </div>
-      
     </div>
-    
-    
   </div>
 </div>
-
 
   </div>
   <!-- 
