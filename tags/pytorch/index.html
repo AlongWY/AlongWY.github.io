@@ -16,7 +16,6 @@
 <link rel="stylesheet" href="https://alongwy.top/main.css">
 
   
-<script src="https://cdn.jsdelivr.net/npm/fullpage.js@3.1.2/vendors/scrolloverflow.min.js"></script>
 <!-- JS -->
 
 <script src="https://alongwy.top/elasticlunr.min.js" defer></script>
@@ -42,7 +41,7 @@
 
 <div style="display:block;margin:auto auto 0;padding:.5rem">
     <figure class="image">
-        <img id="avatar" class="is-rounded" src="&#x2F;img&#x2F;avatar.png">
+        <img id="avatar" class="is-rounded" src="https://alongwy.top/img/avatar.png">
     </figure>
 </div>
 
@@ -71,8 +70,6 @@
  
 <li data-menuanchor="education"><a href="/#anchor_education">EDUCATION</a></li>
 
- 
-<li data-menuanchor="blog"><a href="/#anchor_blog">BLOG</a></li>    
 
 </ul>
 
@@ -143,7 +140,8 @@
 
   </div>
   
-<script src="https://alongwy.top/js/fullpage.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullpage.js@3.1.2/dist/fullpage.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullpage.js@3.1.2/vendors/scrolloverflow.min.js"></script>
 <script type="text/javascript">
     var fullpages = new fullpage('#fullpage', {
         menu: '#menu',
@@ -156,7 +154,7 @@
              'anchor_publications',  
              'anchor_experience',    
              'anchor_education',     
-             'anchor_blog',          
+            
         ],
         afterResize: function( width, height ){
 		    if (width < 936) {
