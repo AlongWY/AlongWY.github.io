@@ -122,7 +122,7 @@ collections:
               - { label: "图标", name: "favicon", widget: "image" }
               - { label: "邮箱", name: "email", widget: "string" }
               - { label: "电话号码", name: "phone", widget: "string" }
-             - {
+              - {
                   label: "渲染数学公式",
                   name: "katex",
                   widget: "boolean",
